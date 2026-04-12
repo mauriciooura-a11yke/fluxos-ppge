@@ -2,53 +2,59 @@
 <html lang="pt-br">
 <head>
     <meta charset="UTF-8">
-    <title>Fluxo: Agendamento Bancas PPGE</title>
+    <title>Fluxo PPGE: Agendamento Bancas PPGE</title>
     <style>
-        body { font-family: 'Segoe UI', Tahoma, sans-serif; margin: 0; padding: 40px; background-color: #f4f4f4; display: flex; flex-direction: column; align-items: center; }
-        .mermaid-wrapper { background: white; padding: 40px; border-radius: 12px; box-shadow: 0 10px 30px rgba(0,0,0,0.1); overflow: auto; max-width: 95%; min-width: 900px; }
-        h2 { color: #1a3a5a; margin-bottom: 20px; }
+        body { font-family: 'Segoe UI', Roboto, sans-serif; background-color: #f0f4f8; margin: 0; padding: 40px; display: flex; flex-direction: column; align-items: center; }
+        .header { text-align: center; margin-bottom: 20px; }
+        .card { background: white; padding: 40px; border-radius: 15px; box-shadow: 0 10px 25px rgba(0,0,0,0.1); overflow: auto; min-width: 900px; }
+        h1 { color: #1a3a5a; font-size: 24px; margin-bottom: 5px; }
+        p { color: #64748b; margin-top: 0; }
+        @media print { .card { box-shadow: none; } }
     </style>
 </head>
 <body>
-    <h2>Procedimento: Agendamento Bancas PPGE</h2>
-    <div class="mermaid-wrapper">
+    <div class="header">
+        <h1>Agendamento Bancas PPGE</h1>
+        <p>Procedimento Interno - PPGE Unifesp</p>
+    </div>
+    <div class="card">
         <pre class="mermaid">
 graph TD
     linkStyle default stroke:#333333,stroke-width:2px;
     inicio(("Início"))
-    style inicio fill:#FFFFFF,color:#000000,stroke:#333
+    style inicio fill:#ffffff,stroke:#1a3a5a,stroke-width:2px,color:#1a3a5a
     fim(("Fim"))
-    style fim fill:#FFFFFF,color:#000000,stroke:#333
+    style fim fill:#ffffff,stroke:#1a3a5a,stroke-width:2px,color:#1a3a5a
     forms_aluno["Estudante agenda a banca via forms disponível no site"]
-    style forms_aluno fill:#FFFFFF,color:#000000,stroke:#333
+    style forms_aluno fill:#ffffff,stroke:#1a3a5a,stroke-width:2px,color:#1a3a5a
     click forms_aluno "https://ppg.unifesp.br/educacao/alunos/manual-do-aluno" "_blank"
     tipo_banca{"É banca de qualificação?"}
-    style tipo_banca fill:#FFFFFF,color:#000000,stroke:#333
+    style tipo_banca fill:#ffffff,stroke:#1a3a5a,stroke-width:2px,color:#1a3a5a
     novo_check_list_quali["Gerar check-list QUALIFICAÇÃO no Menu PPGE"]
-    style novo_check_list_quali fill:#FFFFFF,color:#000000,stroke:#333
+    style novo_check_list_quali fill:#ffffff,stroke:#1a3a5a,stroke-width:2px,color:#1a3a5a
     convite["Emitir e enviar Carta-convite"]
-    style convite fill:#FFFFFF,color:#000000,stroke:#333
+    style convite fill:#ffffff,stroke:#1a3a5a,stroke-width:2px,color:#1a3a5a
     novo_registro_planilha_bancas["Registrar nova banca na planilha de bancas do PPGE"]
-    style novo_registro_planilha_bancas fill:#FFFFFF,color:#000000,stroke:#333
+    style novo_registro_planilha_bancas fill:#ffffff,stroke:#1a3a5a,stroke-width:2px,color:#1a3a5a
     click novo_registro_planilha_bancas "https://docs.google.com/spreadsheets/d/1WJOZqziDQtMjNyhJf6Q8cAHZa-pTw4AK9kPO4p0FMuE/edit?gid=1022884617#gid=1022884617" "_blank"
     cadastrar_siiu["Cadastrar tese e membros no sistema de bancas"]
-    style cadastrar_siiu fill:#FFFFFF,color:#000000,stroke:#333
+    style cadastrar_siiu fill:#ffffff,stroke:#1a3a5a,stroke-width:2px,color:#1a3a5a
     click cadastrar_siiu "https://procdados.epm.br/dpd/pg/" "_blank"
     forms_capgpq["Se necessário, solicitar cadastro de membros da banca à CaPGPq"]
-    style forms_capgpq fill:#FFFFFF,color:#000000,stroke:#333
+    style forms_capgpq fill:#ffffff,stroke:#1a3a5a,stroke-width:2px,color:#1a3a5a
     novo_check_list_defesa["Gerar check-list DEFESA no Menu PPGE"]
-    style novo_check_list_defesa fill:#FFFFFF,color:#000000,stroke:#333
+    style novo_check_list_defesa fill:#ffffff,stroke:#1a3a5a,stroke-width:2px,color:#1a3a5a
     protocolo_siiu["Gerar protocolo envio de tese"]
-    style protocolo_siiu fill:#FFFFFF,color:#000000,stroke:#333
+    style protocolo_siiu fill:#ffffff,stroke:#1a3a5a,stroke-width:2px,color:#1a3a5a
     lote_defesa["Inserir no processo de defesas o conjunto de docs para compor o lote mensal a ser pautado na reunião da CaPGPq"]
-    style lote_defesa fill:#FFFFFF,color:#000000,stroke:#333
+    style lote_defesa fill:#ffffff,stroke:#1a3a5a,stroke-width:2px,color:#1a3a5a
     remessa_processo_capgpq["Remeter processo para Câmara de Pós-Graduação"]
-    style remessa_processo_capgpq fill:#FFFFFF,color:#000000,stroke:#333
+    style remessa_processo_capgpq fill:#ffffff,stroke:#1a3a5a,stroke-width:2px,color:#1a3a5a
     atualiza_planilha_bancas["Atualizar planilha de bancas"]
-    style atualiza_planilha_bancas fill:#FFFFFF,color:#000000,stroke:#333
+    style atualiza_planilha_bancas fill:#ffffff,stroke:#1a3a5a,stroke-width:2px,color:#1a3a5a
     click atualiza_planilha_bancas "https://docs.google.com/spreadsheets/d/1WJOZqziDQtMjNyhJf6Q8cAHZa-pTw4AK9kPO4p0FMuE/edit?gid=1022884617#gid=1022884617" "_blank"
     arquiva_check_list["Arquivar check-list"]
-    style arquiva_check_list fill:#FFFFFF,color:#000000,stroke:#333
+    style arquiva_check_list fill:#ffffff,stroke:#1a3a5a,stroke-width:2px,color:#1a3a5a
     inicio --> forms_aluno
     forms_aluno --> novo_registro_planilha_bancas
     novo_registro_planilha_bancas --> tipo_banca
@@ -76,7 +82,8 @@ graph TD
             flowchart: { 
                 useMaxWidth: false, 
                 htmlLabels: true,
-                curve: 'basis'
+                curve: 'basis',
+                padding: 30
             }
         });
     </script>
