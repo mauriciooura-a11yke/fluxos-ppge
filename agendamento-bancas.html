@@ -1,81 +1,145 @@
-<!DOCTYPE html>
-<html lang="pt-br">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Fluxo PPGE: Agendamento Bancas PPGE</title>
-    <style>
-        body { font-family: 'Segoe UI', sans-serif; margin: 0; padding: 0; background-color: #f8fafc; display: flex; flex-direction: column; align-items: center; }
-        .header { width: 100%; background: #1a3a5a; color: white; padding: 25px 0; text-align: center; margin-bottom: 30px; }
-        .svg-container { width: 95%; max-width: 1300px; background: white; padding: 30px; border-radius: 12px; box-shadow: 0 4px 25px rgba(0,0,0,0.06); }
-        .mermaid { display: flex; justify-content: center; }
-        svg { width: 100% !important; height: auto !important; }
-    </style>
-</head>
-<body>
-    <div class="header"><h1>Agendamento Bancas PPGE</h1></div>
-    <div class="svg-container">
-        <pre class="mermaid">graph TD
-    linkStyle default stroke:#333333,stroke-width:2px;
-    inicio(("Início"))
-    style inicio fill:#ffffff,stroke:#1a3a5a,stroke-width:2px,color:#1a3a5a
-    fim(("Fim"))
-    style fim fill:#ffffff,stroke:#1a3a5a,stroke-width:2px,color:#1a3a5a
-    forms_aluno["Estudante agenda a banca via forms disponível no site"]
-    style forms_aluno fill:#ffffff,stroke:#1a3a5a,stroke-width:2px,color:#1a3a5a
-    click forms_aluno "https://ppg.unifesp.br/educacao/alunos/manual-do-aluno" "_blank"
-    tipo_banca{"É banca de qualificação?"}
-    style tipo_banca fill:#ffffff,stroke:#1a3a5a,stroke-width:2px,color:#1a3a5a
-    novo_check_list_quali["Gerar check-list QUALIFICAÇÃO no Menu PPGE"]
-    style novo_check_list_quali fill:#ffffff,stroke:#1a3a5a,stroke-width:2px,color:#1a3a5a
-    convite["Emitir e enviar Carta-convite"]
-    style convite fill:#ffffff,stroke:#1a3a5a,stroke-width:2px,color:#1a3a5a
-    novo_registro_planilha_bancas["Registrar nova banca na planilha de bancas do PPGE"]
-    style novo_registro_planilha_bancas fill:#ffffff,stroke:#1a3a5a,stroke-width:2px,color:#1a3a5a
-    click novo_registro_planilha_bancas "https://docs.google.com/spreadsheets/d/1WJOZqziDQtMjNyhJf6Q8cAHZa-pTw4AK9kPO4p0FMuE/edit?gid=1022884617#gid=1022884617" "_blank"
-    cadastrar_siiu["Cadastrar tese e membros no sistema de bancas"]
-    style cadastrar_siiu fill:#ffffff,stroke:#1a3a5a,stroke-width:2px,color:#1a3a5a
-    click cadastrar_siiu "https://procdados.epm.br/dpd/pg/" "_blank"
-    forms_capgpq["Se necessário, solicitar cadastro de membros da banca à CaPGPq"]
-    style forms_capgpq fill:#ffffff,stroke:#1a3a5a,stroke-width:2px,color:#1a3a5a
-    novo_check_list_defesa["Gerar check-list DEFESA no Menu PPGE"]
-    style novo_check_list_defesa fill:#ffffff,stroke:#1a3a5a,stroke-width:2px,color:#1a3a5a
-    protocolo_siiu["Gerar protocolo envio de tese"]
-    style protocolo_siiu fill:#ffffff,stroke:#1a3a5a,stroke-width:2px,color:#1a3a5a
-    lote_defesa["Inserir no processo de defesas o conjunto de docs para compor o lote mensal a ser pautado na reunião da CaPGPq"]
-    style lote_defesa fill:#ffffff,stroke:#1a3a5a,stroke-width:2px,color:#1a3a5a
-    remessa_processo_capgpq["Remeter processo para Câmara de Pós-Graduação"]
-    style remessa_processo_capgpq fill:#ffffff,stroke:#1a3a5a,stroke-width:2px,color:#1a3a5a
-    atualiza_planilha_bancas["Atualizar planilha de bancas"]
-    style atualiza_planilha_bancas fill:#ffffff,stroke:#1a3a5a,stroke-width:2px,color:#1a3a5a
-    click atualiza_planilha_bancas "https://docs.google.com/spreadsheets/d/1WJOZqziDQtMjNyhJf6Q8cAHZa-pTw4AK9kPO4p0FMuE/edit?gid=1022884617#gid=1022884617" "_blank"
-    arquiva_check_list["Arquivar check-list"]
-    style arquiva_check_list fill:#ffffff,stroke:#1a3a5a,stroke-width:2px,color:#1a3a5a
-    inicio --> forms_aluno
-    forms_aluno --> novo_registro_planilha_bancas
-    novo_registro_planilha_bancas --> tipo_banca
-    tipo_banca -- "Sim" --> novo_check_list_quali
-    tipo_banca -- "Não" --> novo_check_list_defesa
-    novo_check_list_quali --> convite
-    novo_check_list_defesa --> cadastrar_siiu
-    cadastrar_siiu --> forms_capgpq
-    forms_capgpq --> protocolo_siiu
-    protocolo_siiu --> lote_defesa
-    lote_defesa --> remessa_processo_capgpq
-    forms_capgpq --> convite
-    convite --> atualiza_planilha_bancas
-    remessa_processo_capgpq --> atualiza_planilha_bancas
-    atualiza_planilha_bancas --> arquiva_check_list
-    arquiva_check_list --> fim</pre>
-    </div>
-    <script type="module">
-        import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs';
-        mermaid.initialize({ 
-            startOnLoad: true, 
-            securityLevel: 'loose', 
-            theme: 'neutral',
-            flowchart: { useMaxWidth: true, htmlLabels: true, curve: 'basis', padding: 40 }
-        });
-    </script>
-</body>
-</html>
+        <!DOCTYPE html>
+        <html lang="pt-br">
+        <head>
+            <meta charset="UTF-8">
+            <style>
+                body { font-family: 'Segoe UI', sans-serif; background: #f1f5f9; display: flex; flex-direction: column; align-items: center; padding: 40px; }
+                .step-card { 
+                    background: white; border-left: 5px solid #1a3a5a; padding: 20px; 
+                    width: 500px; border-radius: 8px; box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+                    display: flex; align-items: center; gap: 20px;
+                }
+                .step-number { 
+                    background: #1a3a5a; color: white; width: 30px; height: 30px; 
+                    border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: bold;
+                }
+                .arrow { font-size: 24px; color: #1a3a5a; margin: 10px 0; }
+                h1 { color: #1a3a5a; }
+            </style>
+        </head>
+        <body>
+            <h1>Agendamento Bancas PPGE</h1>
+            
+            <div class="step-card">
+                <div class="step-number">1</div>
+                <div class="step-content">
+                    <strong>Início</strong>
+                    
+                </div>
+            </div>
+            <div class="arrow">↓</div>
+            <div class="step-card">
+                <div class="step-number">2</div>
+                <div class="step-content">
+                    <strong>Fim</strong>
+                    
+                </div>
+            </div>
+            <div class="arrow">↓</div>
+            <div class="step-card">
+                <div class="step-number">3</div>
+                <div class="step-content">
+                    <strong>Estudante agenda a banca via forms disponível no site</strong>
+                    <br><a href="https://ppg.unifesp.br/educacao/alunos/manual-do-aluno" target="_blank" style="color: #3b82f6; font-size: 0.8em;">🔗 Acessar Link</a>
+                </div>
+            </div>
+            <div class="arrow">↓</div>
+            <div class="step-card">
+                <div class="step-number">4</div>
+                <div class="step-content">
+                    <strong>É banca de qualificação?</strong>
+                    
+                </div>
+            </div>
+            <div class="arrow">↓</div>
+            <div class="step-card">
+                <div class="step-number">5</div>
+                <div class="step-content">
+                    <strong>Gerar check-list QUALIFICAÇÃO no Menu PPGE</strong>
+                    
+                </div>
+            </div>
+            <div class="arrow">↓</div>
+            <div class="step-card">
+                <div class="step-number">6</div>
+                <div class="step-content">
+                    <strong>Emitir e enviar Carta-convite</strong>
+                    
+                </div>
+            </div>
+            <div class="arrow">↓</div>
+            <div class="step-card">
+                <div class="step-number">7</div>
+                <div class="step-content">
+                    <strong>Registrar nova banca na planilha de bancas do PPGE</strong>
+                    <br><a href="https://docs.google.com/spreadsheets/d/1WJOZqziDQtMjNyhJf6Q8cAHZa-pTw4AK9kPO4p0FMuE/edit?gid=1022884617#gid=1022884617" target="_blank" style="color: #3b82f6; font-size: 0.8em;">🔗 Acessar Link</a>
+                </div>
+            </div>
+            <div class="arrow">↓</div>
+            <div class="step-card">
+                <div class="step-number">8</div>
+                <div class="step-content">
+                    <strong>Cadastrar tese e membros no sistema de bancas</strong>
+                    <br><a href="https://procdados.epm.br/dpd/pg/" target="_blank" style="color: #3b82f6; font-size: 0.8em;">🔗 Acessar Link</a>
+                </div>
+            </div>
+            <div class="arrow">↓</div>
+            <div class="step-card">
+                <div class="step-number">9</div>
+                <div class="step-content">
+                    <strong>Se necessário, solicitar cadastro de membros da banca à CaPGPq</strong>
+                    
+                </div>
+            </div>
+            <div class="arrow">↓</div>
+            <div class="step-card">
+                <div class="step-number">10</div>
+                <div class="step-content">
+                    <strong>Gerar check-list DEFESA no Menu PPGE</strong>
+                    
+                </div>
+            </div>
+            <div class="arrow">↓</div>
+            <div class="step-card">
+                <div class="step-number">11</div>
+                <div class="step-content">
+                    <strong>Gerar protocolo envio de tese</strong>
+                    
+                </div>
+            </div>
+            <div class="arrow">↓</div>
+            <div class="step-card">
+                <div class="step-number">12</div>
+                <div class="step-content">
+                    <strong>Inserir no processo de defesas o conjunto de docs para compor o lote mensal a ser pautado na reunião da CaPGPq</strong>
+                    
+                </div>
+            </div>
+            <div class="arrow">↓</div>
+            <div class="step-card">
+                <div class="step-number">13</div>
+                <div class="step-content">
+                    <strong>Remeter processo para Câmara de Pós-Graduação</strong>
+                    
+                </div>
+            </div>
+            <div class="arrow">↓</div>
+            <div class="step-card">
+                <div class="step-number">14</div>
+                <div class="step-content">
+                    <strong>Atualizar planilha de bancas</strong>
+                    <br><a href="https://docs.google.com/spreadsheets/d/1WJOZqziDQtMjNyhJf6Q8cAHZa-pTw4AK9kPO4p0FMuE/edit?gid=1022884617#gid=1022884617" target="_blank" style="color: #3b82f6; font-size: 0.8em;">🔗 Acessar Link</a>
+                </div>
+            </div>
+            <div class="arrow">↓</div>
+            <div class="step-card">
+                <div class="step-number">15</div>
+                <div class="step-content">
+                    <strong>Arquivar check-list</strong>
+                    
+                </div>
+            </div>
+            
+        </body>
+        </html>
+        
