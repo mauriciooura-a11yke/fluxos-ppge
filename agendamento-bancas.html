@@ -2,24 +2,20 @@
 <html lang="pt-br">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Fluxo PPGE: Agendamento Bancas PPGE</title>
     <style>
-        body { font-family: 'Segoe UI', Roboto, sans-serif; background-color: #f0f4f8; margin: 0; padding: 40px; display: flex; flex-direction: column; align-items: center; }
-        .header { text-align: center; margin-bottom: 20px; }
-        .card { background: white; padding: 40px; border-radius: 15px; box-shadow: 0 10px 25px rgba(0,0,0,0.1); overflow: auto; min-width: 900px; }
-        h1 { color: #1a3a5a; font-size: 24px; margin-bottom: 5px; }
-        p { color: #64748b; margin-top: 0; }
-        @media print { .card { box-shadow: none; } }
+        body { font-family: 'Segoe UI', sans-serif; margin: 0; padding: 0; background-color: #f8fafc; display: flex; flex-direction: column; align-items: center; }
+        .header { width: 100%; background: #1a3a5a; color: white; padding: 25px 0; text-align: center; margin-bottom: 30px; }
+        .svg-container { width: 95%; max-width: 1300px; background: white; padding: 30px; border-radius: 12px; box-shadow: 0 4px 25px rgba(0,0,0,0.06); }
+        .mermaid { display: flex; justify-content: center; }
+        svg { width: 100% !important; height: auto !important; }
     </style>
 </head>
 <body>
-    <div class="header">
-        <h1>Agendamento Bancas PPGE</h1>
-        <p>Procedimento Interno - PPGE Unifesp</p>
-    </div>
-    <div class="card">
-        <pre class="mermaid">
-graph TD
+    <div class="header"><h1>Agendamento Bancas PPGE</h1></div>
+    <div class="svg-container">
+        <pre class="mermaid">graph TD
     linkStyle default stroke:#333333,stroke-width:2px;
     inicio(("Início"))
     style inicio fill:#ffffff,stroke:#1a3a5a,stroke-width:2px,color:#1a3a5a
@@ -70,8 +66,7 @@ graph TD
     convite --> atualiza_planilha_bancas
     remessa_processo_capgpq --> atualiza_planilha_bancas
     atualiza_planilha_bancas --> arquiva_check_list
-    arquiva_check_list --> fim
-        </pre>
+    arquiva_check_list --> fim</pre>
     </div>
     <script type="module">
         import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs';
@@ -79,12 +74,7 @@ graph TD
             startOnLoad: true, 
             securityLevel: 'loose', 
             theme: 'neutral',
-            flowchart: { 
-                useMaxWidth: false, 
-                htmlLabels: true,
-                curve: 'basis',
-                padding: 30
-            }
+            flowchart: { useMaxWidth: true, htmlLabels: true, curve: 'basis', padding: 40 }
         });
     </script>
 </body>
