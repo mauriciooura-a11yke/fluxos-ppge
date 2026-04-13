@@ -1,29 +1,30 @@
-<!DOCTYPE html>
-<html lang="pt-br">
-<head>
-    <meta charset="UTF-8">
-    <style>
-        body { font-family: sans-serif; background: #f4f7f9; padding: 20px; color: #333; display: flex; justify-content: center; }
-        .card { background: white; padding: 30px; border-radius: 12px; box-shadow: 0 4px 20px rgba(0,0,0,0.1); border-top: 6px solid #1a3a5a; max-width: 95%; }
-        .img-box { text-align: center; margin: 20px 0; }
-        img { max-width: 100%; height: auto; }
-        h1 { color: #1a3a5a; text-align: center; }
-        .links { margin-top: 30px; border-top: 1px solid #eee; padding-top: 20px; }
-        ul { list-style: none; padding: 0; }
-        li { margin-bottom: 10px; }
-        a { color: #007bff; text-decoration: none; font-weight: bold; }
-    </style>
-</head>
-<body>
-    <div class="card">
-        <h1>Agendamento Bancas PPGE</h1>
-        <div class="img-box">
-            <img src="https://mermaid.ink/img/Z3JhcGggVEQKICBpbmljaW8oKEluw61jaW8pKQogIHN0eWxlIGluaWNpbyBmaWxsOiNmZmYsc3Ryb2tlOiMxYTNhNWEsc3Ryb2tlLXdpZHRoOjJweCxjb2xvcjojMWEzYTVhCiAgZmltKChGaW0pKQogIHN0eWxlIGZpbSBmaWxsOiNmZmYsc3Ryb2tlOiMxYTNhNWEsc3Ryb2tlLXdpZHRoOjJweCxjb2xvcjojMWEzYTVhCiAgZm9ybXNfYWx1bm9bRXN0dWRhbnRlIGFnZW5kYSBhIGJhbmNhIHZpYSBmb3JtcyBkaXNwb27DrXZlbCBubyBzaXRlXQogIHN0eWxlIGZvcm1zX2FsdW5vIGZpbGw6I2ZmZixzdHJva2U6IzFhM2E1YSxzdHJva2Utd2lkdGg6MnB4LGNvbG9yOiMxYTNhNWEKICB0aXBvX2JhbmNhe8OJIGJhbmNhIGRlIHF1YWxpZmljYcOnw6NvP30KICBzdHlsZSB0aXBvX2JhbmNhIGZpbGw6I2ZmZixzdHJva2U6IzFhM2E1YSxzdHJva2Utd2lkdGg6MnB4LGNvbG9yOiMxYTNhNWEKICBub3ZvX2NoZWNrX2xpc3RfcXVhbGlbR2VyYXIgY2hlY2stbGlzdCBRVUFMSUZJQ0HDh8ODTyBubyBNZW51IFBQR0VdCiAgc3R5bGUgbm92b19jaGVja19saXN0X3F1YWxpIGZpbGw6I2ZmZixzdHJva2U6IzFhM2E1YSxzdHJva2Utd2lkdGg6MnB4LGNvbG9yOiMxYTNhNWEKICBjb252aXRlW0VtaXRpciBlIGVudmlhciBDYXJ0YS1jb252aXRlXQogIHN0eWxlIGNvbnZpdGUgZmlsbDojZmZmLHN0cm9rZTojMWEzYTVhLHN0cm9rZS13aWR0aDoycHgsY29sb3I6IzFhM2E1YQogIG5vdm9fcmVnaXN0cm9fcGxhbmlsaGFfYmFuY2FzW1JlZ2lzdHJhciBub3ZhIGJhbmNhIG5hIHBsYW5pbGhhIGRlIGJhbmNhcyBkbyBQUEdFXQogIHN0eWxlIG5vdm9fcmVnaXN0cm9fcGxhbmlsaGFfYmFuY2FzIGZpbGw6I2ZmZixzdHJva2U6IzFhM2E1YSxzdHJva2Utd2lkdGg6MnB4LGNvbG9yOiMxYTNhNWEKICBjYWRhc3RyYXJfc2lpdVtDYWRhc3RyYXIgdGVzZSBlIG1lbWJyb3Mgbm8gc2lzdGVtYSBkZSBiYW5jYXNdCiAgc3R5bGUgY2FkYXN0cmFyX3NpaXUgZmlsbDojZmZmLHN0cm9rZTojMWEzYTVhLHN0cm9rZS13aWR0aDoycHgsY29sb3I6IzFhM2E1YQogIGZvcm1zX2NhcGdwcVtTZSBuZWNlc3PDoXJpbywgc29saWNpdGFyIGNhZGFzdHJvIGRlIG1lbWJyb3MgZGEgYmFuY2Egw6AgQ2FQR1BxXQogIHN0eWxlIGZvcm1zX2NhcGdwcSBmaWxsOiNmZmYsc3Ryb2tlOiMxYTNhNWEsc3Ryb2tlLXdpZHRoOjJweCxjb2xvcjojMWEzYTVhCiAgbm92b19jaGVja19saXN0X2RlZmVzYVtHZXJhciBjaGVjay1saXN0IERFRkVTQSBubyBNZW51IFBQR0VdCiAgc3R5bGUgbm92b19jaGVja19saXN0X2RlZmVzYSBmaWxsOiNmZmYsc3Ryb2tlOiMxYTNhNWEsc3Ryb2tlLXdpZHRoOjJweCxjb2xvcjojMWEzYTVhCiAgcHJvdG9jb2xvX3NpaXVbR2VyYXIgcHJvdG9jb2xvIGVudmlvIGRlIHRlc2VdCiAgc3R5bGUgcHJvdG9jb2xvX3NpaXUgZmlsbDojZmZmLHN0cm9rZTojMWEzYTVhLHN0cm9rZS13aWR0aDoycHgsY29sb3I6IzFhM2E1YQogIGxvdGVfZGVmZXNhW0luc2VyaXIgbm8gcHJvY2Vzc28gZGUgZGVmZXNhcyBvIGNvbmp1bnRvIGRlIGRvY3MgcGFyYSBjb21wb3IgbyBsb3RlIG1lbnNhbCBhIHNlciBwYXV0YWRvIG5hIHJldW5pw6NvIGRhIENhUEdQcV0KICBzdHlsZSBsb3RlX2RlZmVzYSBmaWxsOiNmZmYsc3Ryb2tlOiMxYTNhNWEsc3Ryb2tlLXdpZHRoOjJweCxjb2xvcjojMWEzYTVhCiAgcmVtZXNzYV9wcm9jZXNzb19jYXBncHFbUmVtZXRlciBwcm9jZXNzbyBwYXJhIEPDom1hcmEgZGUgUMOzcy1HcmFkdWHDp8Ojb10KICBzdHlsZSByZW1lc3NhX3Byb2Nlc3NvX2NhcGdwcSBmaWxsOiNmZmYsc3Ryb2tlOiMxYTNhNWEsc3Ryb2tlLXdpZHRoOjJweCxjb2xvcjojMWEzYTVhCiAgYXR1YWxpemFfcGxhbmlsaGFfYmFuY2FzW0F0dWFsaXphciBwbGFuaWxoYSBkZSBiYW5jYXNdCiAgc3R5bGUgYXR1YWxpemFfcGxhbmlsaGFfYmFuY2FzIGZpbGw6I2ZmZixzdHJva2U6IzFhM2E1YSxzdHJva2Utd2lkdGg6MnB4LGNvbG9yOiMxYTNhNWEKICBhcnF1aXZhX2NoZWNrX2xpc3RbQXJxdWl2YXIgY2hlY2stbGlzdF0KICBzdHlsZSBhcnF1aXZhX2NoZWNrX2xpc3QgZmlsbDojZmZmLHN0cm9rZTojMWEzYTVhLHN0cm9rZS13aWR0aDoycHgsY29sb3I6IzFhM2E1YQogIGluaWNpbyAtLT4gZm9ybXNfYWx1bm8KICBmb3Jtc19hbHVubyAtLT4gbm92b19yZWdpc3Ryb19wbGFuaWxoYV9iYW5jYXMKICBub3ZvX3JlZ2lzdHJvX3BsYW5pbGhhX2JhbmNhcyAtLT4gdGlwb19iYW5jYQogIHRpcG9fYmFuY2EgLS0+fFNpbXwgbm92b19jaGVja19saXN0X3F1YWxpCiAgdGlwb19iYW5jYSAtLT58TsOjb3wgbm92b19jaGVja19saXN0X2RlZmVzYQogIG5vdm9fY2hlY2tfbGlzdF9xdWFsaSAtLT4gY29udml0ZQogIG5vdm9fY2hlY2tfbGlzdF9kZWZlc2EgLS0+IGNhZGFzdHJhcl9zaWl1CiAgY2FkYXN0cmFyX3NpaXUgLS0+IGZvcm1zX2NhcGdwcQogIGZvcm1zX2NhcGdwcSAtLT4gcHJvdG9jb2xvX3NpaXUKICBwcm90b2NvbG9fc2lpdSAtLT4gbG90ZV9kZWZlc2EKICBsb3RlX2RlZmVzYSAtLT4gcmVtZXNzYV9wcm9jZXNzb19jYXBncHEKICBmb3Jtc19jYXBncHEgLS0+IGNvbnZpdGUKICBjb252aXRlIC0tPiBhdHVhbGl6YV9wbGFuaWxoYV9iYW5jYXMKICByZW1lc3NhX3Byb2Nlc3NvX2NhcGdwcSAtLT4gYXR1YWxpemFfcGxhbmlsaGFfYmFuY2FzCiAgYXR1YWxpemFfcGxhbmlsaGFfYmFuY2FzIC0tPiBhcnF1aXZhX2NoZWNrX2xpc3QKICBhcnF1aXZhX2NoZWNrX2xpc3QgLS0+IGZpbQ==" alt="Fluxograma Vertical">
-        </div>
-        <div class="links">
-            <h3>📂 Referências</h3>
-            <ul><li><a href="https://ppg.unifesp.br/educacao/alunos/manual-do-aluno" target="_blank">🔗 Estudante agenda a banca via forms disponível no site</a></li><li><a href="https://docs.google.com/spreadsheets/d/1WJOZqziDQtMjNyhJf6Q8cAHZa-pTw4AK9kPO4p0FMuE/edit?gid=1022884617#gid=1022884617" target="_blank">🔗 Registrar nova banca na planilha de bancas do PPGE</a></li><li><a href="https://procdados.epm.br/dpd/pg/" target="_blank">🔗 Cadastrar tese e membros no sistema de bancas</a></li><li><a href="https://docs.google.com/spreadsheets/d/1WJOZqziDQtMjNyhJf6Q8cAHZa-pTw4AK9kPO4p0FMuE/edit?gid=1022884617#gid=1022884617" target="_blank">🔗 Atualizar planilha de bancas</a></li></ul>
-        </div>
-    </div>
-</body>
-</html>
+
+            <!DOCTYPE html>
+            <html lang="pt-br">
+            <head>
+                <meta charset="UTF-8">
+                <style>
+                    body { font-family: 'Segoe UI', sans-serif; background-color: #f4f7f9; margin: 0; padding: 40px; display: flex; justify-content: center; }
+                    .card { background: #fff; max-width: 1000px; width: 100%; padding: 40px; border-radius: 12px; box-shadow: 0 4px 20px rgba(0,0,0,0.1); border-top: 8px solid #1a3a5a; }
+                    h1 { color: #1a3a5a; text-align: center; border-bottom: 2px solid #eee; padding-bottom: 20px; }
+                    .img-container { text-align: center; margin: 30px 0; padding: 20px; border: 1px solid #f0f0f0; border-radius: 8px; }
+                    img { max-width: 100%; height: auto; }
+                    .links { margin-top: 30px; padding-top: 20px; border-top: 1px solid #eee; }
+                    ul { list-style: none; padding: 0; }
+                    li { margin-bottom: 10px; }
+                    a { color: #007bff; text-decoration: none; font-weight: bold; }
+                    a:hover { text-decoration: underline; }
+                </style>
+            </head>
+            <body>
+                <div class="card">
+                    <h1>Agendamento Bancas PPGE</h1>
+                    <div class="img-container"><img src="https://mermaid.ink/img/Z3JhcGggVEQKICBpbmljaW8oKCJJbsOtY2lvIikpCiAgc3R5bGUgaW5pY2lvIGZpbGw6I2ZmZixzdHJva2U6IzFhM2E1YSxzdHJva2Utd2lkdGg6MnB4LGNvbG9yOiMxYTNhNWEKICBmaW0oKCJGaW0iKSkKICBzdHlsZSBmaW0gZmlsbDojZmZmLHN0cm9rZTojMWEzYTVhLHN0cm9rZS13aWR0aDoycHgsY29sb3I6IzFhM2E1YQogIGZvcm1zX2FsdW5vWyJFc3R1ZGFudGUgYWdlbmRhIGEgYmFuY2EgdmlhIGZvcm1zIGRpc3BvbsOtdmVsIG5vIHNpdGUiXQogIHN0eWxlIGZvcm1zX2FsdW5vIGZpbGw6I2ZmZixzdHJva2U6IzFhM2E1YSxzdHJva2Utd2lkdGg6MnB4LGNvbG9yOiMxYTNhNWEKICBub3ZvX2NoZWNrX2xpc3RfcXVhbGlbIkdlcmFyIGNoZWNrLWxpc3QgUVVBTElGSUNBw4fDg08gbm8gTWVudSBQUEdFIl0KICBzdHlsZSBub3ZvX2NoZWNrX2xpc3RfcXVhbGkgZmlsbDojZmZmLHN0cm9rZTojMWEzYTVhLHN0cm9rZS13aWR0aDoycHgsY29sb3I6IzFhM2E1YQogIGNvbnZpdGVbIkVtaXRpciBlIGVudmlhciBDYXJ0YS1jb252aXRlIl0KICBzdHlsZSBjb252aXRlIGZpbGw6I2ZmZixzdHJva2U6IzFhM2E1YSxzdHJva2Utd2lkdGg6MnB4LGNvbG9yOiMxYTNhNWEKICBub3ZvX3JlZ2lzdHJvX3BsYW5pbGhhX2JhbmNhc1siUmVnaXN0cmFyIG5vdmEgYmFuY2EgbmEgcGxhbmlsaGEgZGUgYmFuY2FzIGRvIFBQR0UiXQogIHN0eWxlIG5vdm9fcmVnaXN0cm9fcGxhbmlsaGFfYmFuY2FzIGZpbGw6I2ZmZixzdHJva2U6IzFhM2E1YSxzdHJva2Utd2lkdGg6MnB4LGNvbG9yOiMxYTNhNWEKICBjYWRhc3RyYXJfc2lpdVsiQ2FkYXN0cmFyIHRlc2UgZSBtZW1icm9zIG5vIHNpc3RlbWEgZGUgYmFuY2FzIl0KICBzdHlsZSBjYWRhc3RyYXJfc2lpdSBmaWxsOiNmZmYsc3Ryb2tlOiMxYTNhNWEsc3Ryb2tlLXdpZHRoOjJweCxjb2xvcjojMWEzYTVhCiAgZm9ybXNfY2FwZ3BxWyJTZSBuZWNlc3PDoXJpbywgc29saWNpdGFyIGNhZGFzdHJvIGRlIG1lbWJyb3MgZGEgYmFuY2Egw6AgQ2FQR1BxIl0KICBzdHlsZSBmb3Jtc19jYXBncHEgZmlsbDojZmZmLHN0cm9rZTojMWEzYTVhLHN0cm9rZS13aWR0aDoycHgsY29sb3I6IzFhM2E1YQogIG5vdm9fY2hlY2tfbGlzdF9kZWZlc2FbIkdlcmFyIGNoZWNrLWxpc3QgREVGRVNBIG5vIE1lbnUgUFBHRSJdCiAgc3R5bGUgbm92b19jaGVja19saXN0X2RlZmVzYSBmaWxsOiNmZmYsc3Ryb2tlOiMxYTNhNWEsc3Ryb2tlLXdpZHRoOjJweCxjb2xvcjojMWEzYTVhCiAgcHJvdG9jb2xvX3NpaXVbIkdlcmFyIHByb3RvY29sbyBlbnZpbyBkZSB0ZXNlIl0KICBzdHlsZSBwcm90b2NvbG9fc2lpdSBmaWxsOiNmZmYsc3Ryb2tlOiMxYTNhNWEsc3Ryb2tlLXdpZHRoOjJweCxjb2xvcjojMWEzYTVhCiAgbG90ZV9kZWZlc2FbIkluc2VyaXIgbm8gcHJvY2Vzc28gZGUgZGVmZXNhcyBvIGNvbmp1bnRvIGRlIGRvY3MgcGFyYSBjb21wb3IgbyBsb3RlIG1lbnNhbCBhIHNlciBwYXV0YWRvIG5hIHJldW5pw6NvIGRhIENhUEdQcSJdCiAgc3R5bGUgbG90ZV9kZWZlc2EgZmlsbDojZmZmLHN0cm9rZTojMWEzYTVhLHN0cm9rZS13aWR0aDoycHgsY29sb3I6IzFhM2E1YQogIHJlbWVzc2FfcHJvY2Vzc29fY2FwZ3BxWyJSZW1ldGVyIHByb2Nlc3NvIHBhcmEgQ8OibWFyYSBkZSBQw7NzLUdyYWR1YcOnw6NvIl0KICBzdHlsZSByZW1lc3NhX3Byb2Nlc3NvX2NhcGdwcSBmaWxsOiNmZmYsc3Ryb2tlOiMxYTNhNWEsc3Ryb2tlLXdpZHRoOjJweCxjb2xvcjojMWEzYTVhCiAgYXR1YWxpemFfcGxhbmlsaGFfYmFuY2FzWyJBdHVhbGl6YXIgcGxhbmlsaGEgZGUgYmFuY2FzIl0KICBzdHlsZSBhdHVhbGl6YV9wbGFuaWxoYV9iYW5jYXMgZmlsbDojZmZmLHN0cm9rZTojMWEzYTVhLHN0cm9rZS13aWR0aDoycHgsY29sb3I6IzFhM2E1YQogIGFycXVpdmFfY2hlY2tfbGlzdFsiQXJxdWl2YXIgY2hlY2stbGlzdCJdCiAgc3R5bGUgYXJxdWl2YV9jaGVja19saXN0IGZpbGw6I2ZmZixzdHJva2U6IzFhM2E1YSxzdHJva2Utd2lkdGg6MnB4LGNvbG9yOiMxYTNhNWEKICBiYW5jYV9xdWFsaWZpY2FfX29bIkJhbmNhIGRlIFF1YWxpZmljYcOnw6NvIl0KICBzdHlsZSBiYW5jYV9xdWFsaWZpY2FfX28gZmlsbDojZmZmLHN0cm9rZTojMWEzYTVhLHN0cm9rZS13aWR0aDoycHgsY29sb3I6IzFhM2E1YQogIGJhbmNhX2RlZmVzYVsiQmFuY2EgZGUgRGVmZXNhIl0KICBzdHlsZSBiYW5jYV9kZWZlc2EgZmlsbDojZmZmLHN0cm9rZTojMWEzYTVhLHN0cm9rZS13aWR0aDoycHgsY29sb3I6IzFhM2E1YQogIGluaWNpbyAtLT4gZm9ybXNfYWx1bm8KICBmb3Jtc19hbHVubyAtLT4gbm92b19yZWdpc3Ryb19wbGFuaWxoYV9iYW5jYXMKICBub3ZvX2NoZWNrX2xpc3RfcXVhbGkgLS0+IGNvbnZpdGUKICBub3ZvX2NoZWNrX2xpc3RfZGVmZXNhIC0tPiBjYWRhc3RyYXJfc2lpdQogIGNhZGFzdHJhcl9zaWl1IC0tPiBmb3Jtc19jYXBncHEKICBmb3Jtc19jYXBncHEgLS0+IHByb3RvY29sb19zaWl1CiAgcHJvdG9jb2xvX3NpaXUgLS0+IGxvdGVfZGVmZXNhCiAgbG90ZV9kZWZlc2EgLS0+IHJlbWVzc2FfcHJvY2Vzc29fY2FwZ3BxCiAgZm9ybXNfY2FwZ3BxIC0tPiBjb252aXRlCiAgY29udml0ZSAtLT4gYXR1YWxpemFfcGxhbmlsaGFfYmFuY2FzCiAgcmVtZXNzYV9wcm9jZXNzb19jYXBncHEgLS0+IGF0dWFsaXphX3BsYW5pbGhhX2JhbmNhcwogIGF0dWFsaXphX3BsYW5pbGhhX2JhbmNhcyAtLT4gYXJxdWl2YV9jaGVja19saXN0CiAgZm9ybXNfYWx1bm8gLS0+IGJhbmNhX3F1YWxpZmljYV9fbwogIGZvcm1zX2FsdW5vIC0tPiBiYW5jYV9kZWZlc2EKICBub3ZvX2NoZWNrX2xpc3RfcXVhbGkgLS0+IG5vdm9fcmVnaXN0cm9fcGxhbmlsaGFfYmFuY2FzCiAgbm92b19jaGVja19saXN0X2RlZmVzYSAtLT4gbm92b19yZWdpc3Ryb19wbGFuaWxoYV9iYW5jYXMKICBub3ZvX3JlZ2lzdHJvX3BsYW5pbGhhX2JhbmNhcyAtLT4gZmltCiAgYXJxdWl2YV9jaGVja19saXN0IC0tPiBmaW0KICBiYW5jYV9xdWFsaWZpY2FfX28gLS0+IG5vdm9fY2hlY2tfbGlzdF9xdWFsaQogIGJhbmNhX2RlZmVzYSAtLT4gbm92b19jaGVja19saXN0X2RlZmVzYQ=="></div>
+                    <div class="links">
+                        <h3>📂 Documentos e Referências</h3>
+                        <ul><li><a href="https://ppg.unifesp.br/educacao/alunos/manual-do-aluno" target="_blank">🔗 Estudante agenda a banca via forms disponível no site</a></li><li><a href="https://docs.google.com/spreadsheets/d/1WJOZqziDQtMjNyhJf6Q8cAHZa-pTw4AK9kPO4p0FMuE/edit?gid=1022884617#gid=1022884617" target="_blank">🔗 Registrar nova banca na planilha de bancas do PPGE</a></li><li><a href="https://procdados.epm.br/dpd/pg/" target="_blank">🔗 Cadastrar tese e membros no sistema de bancas</a></li><li><a href="https://docs.google.com/spreadsheets/d/1WJOZqziDQtMjNyhJf6Q8cAHZa-pTw4AK9kPO4p0FMuE/edit?gid=1022884617#gid=1022884617" target="_blank">🔗 Atualizar planilha de bancas</a></li></ul>
+                    </div>
+                </div>
+            </body>
+            </html>
+            
