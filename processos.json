@@ -28,5 +28,29 @@
     "descricao": "Gestão da Bolsas CAPES DS - Demanda Social.",
     "link": "https://sei.unifesp.br/controlador.php?acao=procedimento_trabalhar&id_procedimento=3277880",
     "botao": "ABRIR PROCESSO"
+  },
+  {
+    "titulo": "23089.028514/2025-69",
+    "descricao": "Alunos especiais.",
+    "link": "https://sei.unifesp.br/controlador.php?acao=procedimento_trabalhar&id_procedimento=3139487",
+    "botao": "ABRIR PROCESSO"
+  },
+  {
+    "titulo": "23089.005368/2026-84",
+    "descricao": "Processo seletivo 2026 - Ingresso em 2027",
+    "link": "https://sei.unifesp.br/sei/controlador.php?acao=procedimento_trabalhar&id_procedimento=3511973",
+    "botao": "ABRIR PROCESSO"
+  },
+  {
+    "titulo": "23089.006699/2023-99",
+    "descricao": "Processo de bancas de defesa - lote mensal para Câmara de Pós-Graduação",
+    "link": "https://sei.unifesp.br/controlador.php?acao=procedimento_trabalhar&id_procedimento=1673763",
+    "botao": "ABRIR PROCESSO"
+  },
+  {
+    "titulo": "23089.035068/2024-68",
+    "descricao": "Declarações EMTU",
+    "link": "https://sei.unifesp.br/controlador.php?acao=procedimento_trabalhar&id_procedimento=2649390",
+    "botao": "ABRIR PROCESSO"
   }
 ]
