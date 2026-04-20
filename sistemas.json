@@ -1,51 +1,58 @@
 [
   {
     "titulo": "Área Exclusiva - Sistema de Bancas",
-    "descricao": "Acesso ao Sistema Área Exclsuiva para cadastro de bancas.",
+    "descricao": "Acesso ao Sistema Área Exclusiva para cadastro de bancas.",
     "link": "https://procdados.epm.br/dpd/pg/",
     "botao": "ACESSAR SISTEMA",
-    "status": ""
+    "status": "",
+    "palavras_chave": "banca, cadastro, membros, defesa"
   },
   {
     "titulo": "Repositório Institucional",
     "descricao": "Acesso ao Sistema Repositório Institucional.",
     "link": "https://repositorio.unifesp.br/login",
     "botao": "ACESSAR SISTEMA",
-    "status": ""
+    "status": "",
+    "palavras_chave": "repositório, depósito"
   },
   {
     "titulo": "Pré-matrícula - Tela do Ingressante",
     "descricao": "Acesso ao Sistema de Pré-Matrícula - Tela do ingressante.",
     "link": "https://notas-propgpq.siiu.unifesp.br/prematricula",
     "botao": "ACESSAR SISTEMA",
-    "status": ""
+    "status": "",
+    "palavras_chave": "pré-matrícula"
   },
   {
     "titulo": "Plataforma Sucupira",
     "descricao": "Sistema de coleta de dados e avaliação dos programas de pós-graduação.",
     "link": "https://sucupira.capes.gov.br",
     "botao": "ACESSAR SISTEMA",
-    "status": ""
+    "status": "",
+    "palavras_chave": "sucupira, coleta, censo"
   },
   {
     "titulo": "Cadastro de Autorizados",
     "descricao": "Sistema de cadastro de autorizados.",
     "link": "https://phpu.unifesp.br/drhunifesp/autorizados/index.php",
     "botao": "ACESSAR SISTEMA",
-    "status": ""
+    "status": "",
+    "palavras_chave": "cadastro, autorizados"
   },
   {
     "titulo": "Consulta de Matrícula - Crachá",
     "descricao": "Interface para o ingressante consultar a matrícula e crachá.",
     "link": "https://infoti.unifesp.edu.br/cracha/",
     "botao": "ACESSAR SISTEMA",
-    "status": ""
+    "status": "",
+    "palavras_chave": "matrícula, crachá"
   },
   {
     "titulo": "Portal SEI - Externo",
     "descricao": "Interface para usuários externos.",
     "link": "https://portalsei.unifesp.br/usuario-externo",
     "botao": "ACESSAR SISTEMA",
-    "status": ""
+    "status": "",
+    "palavras_chave": "sei, usuário, externo"
   }
 ]
