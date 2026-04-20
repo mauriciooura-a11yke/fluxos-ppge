@@ -230,16 +230,32 @@
 
     // Função auxiliar para gerar o HTML dos cartões
     function renderCards(lista, tagClass, categoriaTitulo) {
-        return lista.map(item => `
-            <div class="card">
-                <div>
-                    <span class="category-tag ${tagClass}">${categoriaTitulo.slice(0,-1)}</span>
-                    <h3>${item.titulo}</h3>
-                    <p>${item.descricao}</p>
+        return lista.map(item => {
+            // Define a cor e o texto do status apenas para processos
+            const isProcesso = tagClass === 'tag-process';
+            const corStatus = item.status === 'ativo' ? '#10b981' : '#f43f5e'; // Verde ou Vermelho
+            const textoStatus = item.status === 'ativo' ? 'Ativo' : 'Inativo';
+
+            return `
+                <div class="card" style="${isProcesso ? `border-left: 4px solid ${corStatus};` : ''}">
+                    <div>
+                        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px;">
+                            <span class="category-tag ${tagClass}">${categoriaTitulo.slice(0,-1)}</span>
+                            ${isProcesso ? 
+                                `<span style="color: ${corStatus}; font-size: 0.65rem; font-weight: bold; text-transform: uppercase; display: flex; align-items: center; gap: 4px;">
+                                    <span style="width: 8px; height: 8px; background: ${corStatus}; border-radius: 50%; display: inline-block;"></span>
+                                    ${textoStatus}
+                                </span>` 
+                                : ''
+                            }
+                        </div>
+                        <h3>${item.titulo}</h3>
+                        <p>${item.descricao}</p>
+                    </div>
+                    <a href="${item.link}" class="btn-view" target="_blank">${item.botao || 'ABRIR'}</a>
                 </div>
-                <a href="${item.link}" class="btn-view" target="_blank">${item.botao || 'ABRIR'}</a>
-            </div>
-        `).join('');
+            `;
+        }).join('');
     }
 
     async function carregarDados() {
