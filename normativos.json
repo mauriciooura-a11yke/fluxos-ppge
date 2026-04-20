@@ -1,23 +1,26 @@
 [
   {
     "titulo": "Regimento Interno PPGE",
-    "descricao": "Regras gerais e normas de funcionamento do programa PPGE, versão 31/07/2025.",
+    "descricao": "Regimento interno do PPGE, versão 31/07/2025.",
     "link": "https://ppg.unifesp.br/educacao/images/regimento/Regimento_do_PPGE_Homologado_Conselho_de_Ps-Graduao_e_Pesquisa_31-07-2025.pdf",
     "botao": "ABRIR DOCUMENTO",
-    "status": ""
+    "status": "",
+    "palavras_chave": "regimento"
   },
   {
     "titulo": "RESOLUÇÃO Nº 204/2021",
-    "descricao": "Regimento interno da pós-graduação e pesquisa da Unifesp.",
+    "descricao": "Dispõe sobre o regimento interno da pós-graduação e pesquisa da Universidade Federal de São Paulo (Unifesp).",
     "link": "https://sei.unifesp.br/sei/publicacoes/controlador_publicacoes.php?acao=publicacao_visualizar&id_documento=819047&id_orgao_publicacao=0",
     "botao": "ABRIR DOCUMENTO",
-    "status": ""
+    "status": "",
+    "palavras_chave": "regimento"
   },
   {
     "titulo": "RESOLUÇÃO nº 005/2022",
-    "descricao": "Extensão da integralização, licenças e afastamentos por saúde. Palavras-chave: licença, afastamento, doença, saúde, maternidade, adoção, transtorno, dislexia",
+    "descricao": "Estabelece as condições especiais de extensão da integralização dos cursos de Pós-graduação da Universidade Federal de São Paulo (Unifesp) além do prazo regimental.",
     "link": "https://sei.unifesp.br/sei/modulos/pesquisa/md_pesq_documento_consulta_externa.php?9LibXMqGnN7gSpLFOOgUQFziRouBJ5VnVL5b7-UrE5RY0RBgM_3R-M8MtuoYAso_mRReaiTQ9kx5FfUBultQTnVV8an1a5jnka-pVGUxRsDFzElXJdOw7yRvaFzyIW9m",
     "botao": "ABRIR DOCUMENTO",
-    "status": ""
+    "status": "",
+    "palavras_chave": "licença, afastamento, doença, saúde, maternidade, adoção, transtorno, dislexia, integralização"
   }
 ]
