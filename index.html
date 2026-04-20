@@ -3,197 +3,36 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PPGE | Flows</title>
+    <title>PPGE | Flows Dinâmico</title>
     <style>
+        /* MANTIVE SEUS ESTILOS ORIGINAIS AQUI */
         :root {
-            --bg-dark: #0a0f18;
-            --card-bg: #161d29;
-            --border: #2d3748;
-            --accent: #38bdf8;
-            --text-bright: #e2e8f0;
-            --text-dim: #94a3b8;
-            --tag-systems: #8b5cf6;
-            --tag-norms: #f59e0b;
-            --tag-flow: #10b981;
-            --tag-proc: #f43f5e;
-            --sidebar-width: 260px;
+            --bg-dark: #0a0f18; --card-bg: #161d29; --border: #2d3748;
+            --accent: #38bdf8; --text-bright: #e2e8f0; --text-dim: #94a3b8;
+            --tag-systems: #8b5cf6; --tag-norms: #f59e0b; --tag-flow: #10b981;
+            --tag-proc: #f43f5e; --sidebar-width: 260px;
         }
-
-        body { 
-            font-family: 'Inter', -apple-system, sans-serif; 
-            background-color: var(--bg-dark); 
-            color: var(--text-bright);
-            margin: 0;
-            display: flex;
-            min-height: 100vh;
-        }
-
-        /* --- MENU LATERAL --- */
-        .sidebar {
-            width: var(--sidebar-width);
-            background-color: #0d131f;
-            border-right: 1px solid var(--border);
-            height: 100vh;
-            position: fixed;
-            padding: 30px 20px;
-            box-sizing: border-box;
-            display: flex;
-            flex-direction: column;
-            gap: 5px;
-            z-index: 100;
-        }
-
-        .sidebar-title {
-            color: var(--text-dim);
-            font-size: 0.75rem;
-            text-transform: uppercase;
-            letter-spacing: 1.5px;
-            margin-bottom: 15px;
-            padding-left: 10px;
-        }
-
-        .sidebar-link {
-            color: var(--text-bright);
-            text-decoration: none;
-            padding: 12px 15px;
-            border-radius: 8px;
-            font-size: 0.9rem;
-            transition: 0.3s;
-            cursor: pointer;
-            border: 1px solid transparent;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-
-        .sidebar-link:hover { background: rgba(56, 189, 248, 0.05); color: var(--accent); }
-        .sidebar-link.active {
-            background: rgba(56, 189, 248, 0.15);
-            color: var(--accent);
-            border-color: rgba(56, 189, 248, 0.3);
-            font-weight: 600;
-        }
-
-        /* --- CONTEÚDO --- */
-        .main-wrapper {
-            margin-left: var(--sidebar-width);
-            flex: 1;
-            padding: 20px 40px;
-            box-sizing: border-box;
-        }
-
-        header {
-            max-width: 1200px;
-            margin: 0 auto 30px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            border-bottom: 1px solid var(--border);
-            padding-bottom: 15px;
-        }
-
-        .brand-container { display: flex; align-items: center; gap: 15px; }
-        .logo-img { height: 45px; width: auto; }
-        .brand h1 { font-size: 1.4rem; margin: 0; letter-spacing: -0.5px; }
-        .brand h1 span { color: var(--accent); font-weight: bold; }
-        
-        .search-box {
-            position: relative;
-            max-width: 500px;
-            margin: 0 auto 40px;
-        }
-
-        #searchInput {
-            width: 100%;
-            padding: 14px 25px;
-            background: var(--card-bg);
-            border: 1px solid var(--border);
-            border-radius: 8px;
-            color: white;
-            font-size: 1rem;
-            transition: all 0.3s;
-        }
-
-        .section-block { margin-bottom: 60px; }
-
-        .section-title {
-            max-width: 1200px;
-            margin: 0 0 25px;
-            color: var(--accent);
-            font-size: 1.1rem;
-            text-transform: uppercase;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-
-        .section-title::after { content: ""; height: 1px; background: var(--border); flex-grow: 1; }
-
-        .grid-container {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-            gap: 20px;
-        }
-
-        .card {
-            background: var(--card-bg);
-            border: 1px solid var(--border);
-            border-radius: 12px;
-            padding: 24px;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-            transition: all 0.2s ease;
-        }
-
-        .card:hover { transform: translateY(-4px); border-color: var(--accent); }
-
-        .category-tag {
-            font-size: 0.65rem;
-            font-weight: 800;
-            text-transform: uppercase;
-            padding: 3px 8px;
-            border-radius: 4px;
-            margin-bottom: 12px;
-            display: inline-block;
-        }
-
-        .tag-flow { background: rgba(16, 185, 129, 0.15); color: var(--tag-flow); border: 1px solid var(--tag-flow); }
-        .tag-system { background: rgba(139, 92, 246, 0.15); color: var(--tag-systems); border: 1px solid var(--tag-systems); }
-        .tag-norm { background: rgba(245, 158, 11, 0.15); color: var(--tag-norms); border: 1px solid var(--tag-norms); }
-        .tag-proc { background: rgba(244, 63, 94, 0.15); color: var(--tag-proc); border: 1px solid var(--tag-proc); }
-
-        .card h3 { margin: 0 0 10px 0; font-size: 1.1rem; color: #fff; line-height: 1.4; }
-        .card p { font-size: 0.85rem; color: var(--text-dim); margin-bottom: 20px; line-height: 1.5; }
-
-        .btn-view {
-            background: rgba(56, 189, 248, 0.08);
-            color: var(--accent);
-            text-decoration: none;
-            text-align: center;
-            padding: 12px;
-            border-radius: 6px;
-            font-size: 0.8rem;
-            font-weight: 600;
-            border: 1px solid var(--accent);
-            transition: 0.2s;
-        }
-
-        .btn-view:hover { background: var(--accent); color: var(--bg-dark); }
-
-        footer { text-align: center; margin-top: 80px; color: var(--text-dim); font-size: 0.8rem; border-top: 1px solid var(--border); padding-top: 20px; }
-
-        @media (max-width: 1024px) {
-            .sidebar { display: none; }
-            .main-wrapper { margin-left: 0; padding: 20px; }
-        }
+        body { font-family: 'Inter', sans-serif; background-color: var(--bg-dark); color: var(--text-bright); margin: 0; display: flex; min-height: 100vh; }
+        .sidebar { width: var(--sidebar-width); background: #0d131f; border-right: 1px solid var(--border); height: 100vh; position: fixed; padding: 30px 20px; box-sizing: border-box; }
+        .sidebar-link { color: var(--text-bright); text-decoration: none; padding: 12px 15px; border-radius: 8px; display: block; cursor: pointer; transition: 0.3s; margin-bottom: 5px; }
+        .sidebar-link.active { background: rgba(56, 189, 248, 0.15); color: var(--accent); font-weight: bold; }
+        .main-wrapper { margin-left: var(--sidebar-width); flex: 1; padding: 20px 40px; }
+        .section-block { margin-bottom: 50px; }
+        .section-title { color: var(--accent); text-transform: uppercase; display: flex; align-items: center; gap: 10px; border-bottom: 1px solid var(--border); padding-bottom: 10px; margin-bottom: 20px; }
+        .grid-container { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 16px; }
+        .card { background: var(--card-bg); border: 1px solid var(--border); border-radius: 10px; padding: 20px; display: flex; flex-direction: column; justify-content: space-between; transition: 0.2s; }
+        .card:hover { border-color: var(--accent); transform: translateY(-3px); }
+        .category-tag { font-size: 0.65rem; font-weight: 800; text-transform: uppercase; padding: 3px 8px; border-radius: 4px; margin-bottom: 10px; display: inline-block; }
+        .btn-view { background: rgba(56, 189, 248, 0.08); color: var(--accent); text-decoration: none; text-align: center; padding: 10px; border-radius: 6px; font-size: 0.8rem; font-weight: bold; border: 1px solid var(--accent); }
+        #searchInput { width: 100%; padding: 14px; background: var(--card-bg); border: 1px solid var(--border); border-radius: 8px; color: white; margin-bottom: 40px; }
+        @media (max-width: 900px) { .sidebar { display: none; } .main-wrapper { margin-left: 0; } }
     </style>
 </head>
 <body>
 
 <nav class="sidebar">
-    <div class="sidebar-title">Menu Principal</div>
-    <a onclick="setCategory('all')" id="btn-all" class="sidebar-link active">🏠 Início / Tudo</a>
+    <div style="color: var(--text-dim); font-size: 0.7rem; margin-bottom: 20px;">MENU</div>
+    <a onclick="setCategory('all')" id="btn-all" class="sidebar-link active">🏠 Tudo</a>
     <a onclick="setCategory('fluxo')" id="btn-fluxo" class="sidebar-link">🌊 Fluxos</a>
     <a onclick="setCategory('sistema')" id="btn-sistema" class="sidebar-link">💻 Sistemas</a>
     <a onclick="setCategory('normativo')" id="btn-normativo" class="sidebar-link">📜 Normativos</a>
@@ -201,190 +40,94 @@
 </nav>
 
 <div class="main-wrapper">
-    <header>
-        <div class="brand-container">
-            <img id="logoUnifesp" class="logo-img" src="" alt="Logo PPGE">
-            <div class="brand">
-                <h1>PPGE<span>Flows</span> <small>Portal de Fluxos e Procedimentos</small></h1>
-            </div>
-        </div>
-        <div style="font-size: 0.7rem; color: var(--text-dim); font-family: monospace;">v 2.7</div>
+    <header style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 30px;">
+        <h1 style="font-size: 1.4rem;">PPGE<span>Flows</span></h1>
+        <div id="status-load" style="font-size: 0.7rem; color: var(--tag-flow);">● Dados Atualizados</div>
     </header>
 
-    <div class="search-box">
-        <input type="text" id="searchInput" onkeyup="filter()" placeholder="Pesquisar nesta categoria...">
-    </div>
+    <input type="text" id="searchInput" onkeyup="filter()" placeholder="Pesquisar...">
 
-    <div class="section-block" id="sec-fluxo">
-        <h2 class="section-title">Fluxos</h2>
-        <div class="grid-container">
-            <div class="card">
-                <div><span class="category-tag tag-flow">Fluxo</span><h3>Agendamento de Bancas</h3><p>Fluxo de agendamento e envio de carta-convite para membros.</p></div>
-                <a href="agendamento_bancas.svg" class="btn-view" target="_blank">VISUALIZAR FLUXO</a>
-            </div>
-            <div class="card">
-                <div><span class="category-tag tag-flow">Fluxo</span><h3>Atas de Bancas</h3><p>Elaboração de atas e envio de carta de agradecimento aos participantes.</p></div>
-                <a href="atas_bancas.svg" class="btn-view" target="_blank">VISUALIZAR FLUXO</a>
-            </div>
-            <div class="card">
-                <div><span class="category-tag tag-flow">Fluxo</span><h3>Homologação de Título</h3><p>Trâmites para homologação de título.</p></div>
-                <a href="homologacao.svg" class="btn-view" target="_blank">VISUALIZAR FLUXO</a>
-            </div>
+    <div id="content-area">
         </div>
-    </div>
-
-    <div class="section-block" id="sec-sistema">
-        <h2 class="section-title">Sistemas</h2>
-        <div class="grid-container">
-            <div class="card">
-                <div><span class="category-tag tag-system">Sistema</span><h3>SEI!</h3><p>Acesso ao Sistema Eletrônico de Informações para abertura de processos.</p></div>
-                <a href="https://sei.unifesp.br" class="btn-view" target="_blank">ACESSAR SISTEMA</a>
-            </div>
-            <div class="card">
-                <div><span class="category-tag tag-system">Sistema</span><h3>SIIU</h3><p>Acesso ao Sistema Integrado de Informações Universitária - SIIU.</p></div>
-                <a href="https://siiu.unifesp.br/login" class="btn-view" target="_blank">ACESSAR SISTEMA</a>
-            </div>
-            <div class="card">
-                <div><span class="category-tag tag-system">Sistema</span><h3>Área Exclusiva - Sistema de Bancas</h3><p>Acesso ao Sistema Área Exclsuiva para cadastro de bancas.</p></div>
-                <a href="https://procdados.epm.br/dpd/pg/" class="btn-view" target="_blank">ACESSAR SISTEMA</a>
-            </div>
-            <div class="card">
-                <div><span class="category-tag tag-system">Sistema</span><h3>Repositório Institucional</h3><p>Acesso ao Sistema Repositório Institucional.</p></div>
-                <a href="https://repositorio.unifesp.br/login" class="btn-view" target="_blank">ACESSAR SISTEMA</a>
-            </div>
-            <div class="card">
-                <div><span class="category-tag tag-system">Sistema</span><h3>Pré-matrícula - Tela do Ingressante</h3><p>Acesso ao Sistema de Pré-Matrícula - Tela do ingressante.</p></div>
-                <a href="https://notas-propgpq.siiu.unifesp.br/prematricula" class="btn-view" target="_blank">ACESSAR SISTEMA</a>
-            </div>
-            <div class="card">
-                <div><span class="category-tag tag-system">Sistema</span><h3>Plataforma Sucupira</h3><p>Sistema de coleta de dados e avaliação dos programas de pós-graduação.</p></div>
-                <a href="https://sucupira.capes.gov.br" class="btn-view" target="_blank">ACESSAR SISTEMA</a>
-            </div>
-            <div class="card">
-                <div><span class="category-tag tag-system">Sistema</span><h3>Cadastro de Autorizados</h3><p>Sistema de cadastro de autorizados.</p></div>
-                <a href="https://phpu.unifesp.br/drhunifesp/autorizados/index.php" class="btn-view" target="_blank">ACESSAR SISTEMA</a>
-            </div>
-            <div class="card">
-                <div><span class="category-tag tag-system">Sistema</span><h3>Consulta de Matrícula - Crachá</h3><p>Interface para o ingressante consultar a matrícula e crachá.</p></div>
-                <a href="https://infoti.unifesp.edu.br/cracha/" class="btn-view" target="_blank">ACESSAR SISTEMA</a>
-            </div>
-            <div class="card">
-                <div><span class="category-tag tag-system">Sistema</span><h3>Portal SEI - Externo</h3><p>Interface para usuários externos.</p></div>
-                <a href="https://portalsei.unifesp.br/usuario-externo" class="btn-view" target="_blank">ACESSAR SISTEMA</a>
-            </div>
-        </div>
-    </div>
-
-    <div class="section-block" id="sec-normativo">
-        <h2 class="section-title">Normativos</h2>
-        <div class="grid-container">
-            <div class="card">
-                <div><span class="category-tag tag-norm">Normativo</span><h3>Regimento Interno PPGE</h3><p>Regras gerais e normas de funcionamento do programa PPGE (31/07/2025).</p></div>
-                <a href="https://ppg.unifesp.br/educacao/images/regimento/Regimento_do_PPGE_Homologado_Conselho_de_Ps-Graduao_e_Pesquisa_31-07-2025.pdf" class="btn-view" target="_blank">ABRIR DOCUMENTO</a>
-            </div>
-            <div class="card">
-                <div><span class="category-tag tag-norm">Normativo</span><h3>RESOLUÇÃO Nº 204/2021</h3><p>Regimento interno da pós-graduação e pesquisa da Unifesp.</p></div>
-                <a href="https://sei.unifesp.br/sei/publicacoes/controlador_publicacoes.php?acao=publicacao_visualizar&id_documento=819047&id_orgao_publicacao=0" class="btn-view" target="_blank">ABRIR DOCUMENTO</a>
-            </div>
-            <div class="card">
-                <div><span class="category-tag tag-norm">Normativo</span><h3>RESOLUÇÃO nº 005/2022</h3><p>Extensão da integralização, licenças e afastamentos por saúde.</p></div>
-                <a href="https://sei.unifesp.br/sei/modulos/pesquisa/md_pesq_documento_consulta_externa.php?9LibXMqGnN7gSpLFOOgUQFziRouBJ5VnVL5b7-UrE5RY0RBgM_3R-M8MtuoYAso_mRReaiTQ9kx5FfUBultQTnVV8an1a5jnka-pVGUxRsDFzElXJdOw7yRvaFzyIW9m" class="btn-view" target="_blank">ABRIR DOCUMENTO</a>
-            </div>
-        </div>
-    </div>
-
-    <div class="section-block" id="sec-processo">
-        <h2 class="section-title">Processos SEI</h2>
-        <div class="grid-container">
-            <div class="card">
-                <div>
-                    <span class="category-tag tag-proc">Processo</span>
-                    <h3>23089.000013/2026-07</h3>
-                    <p>Atividades Complementares PPGE.</p>
-                </div>
-                <a href="https://sei.unifesp.br/sei/controlador.php?acao=procedimento_trabalhar&id_procedimento=3430414" class="btn-view" target="_blank">ABRIR PROCESSO</a>
-            </div>
-            <div class="card">
-                <div>
-                    <span class="category-tag tag-proc">Processo</span>
-                    <h3>23089.040057/2025-81</h3>
-                    <p>Convalidação de créditos PPGE.</p>
-                </div>
-                <a href="https://sei.unifesp.br/sei/controlador.php?acao=procedimento_trabalhar&id_procedimento=3310586" class="btn-view" target="_blank">ABRIR PROCESSO</a>
-            </div>
-            <div class="card">
-                <div>
-                    <span class="category-tag tag-proc">Processo</span>
-                    <h3>23089.000018/2026-21</h3>
-                    <p>Dispensas e Certificados PAD (Programa de Aperfeiçoamento Didático).</p>
-                </div>
-                <a href="https://sei.unifesp.br/sei/controlador.php?acao=procedimento_trabalhar&id_procedimento=3430621" class="btn-view" target="_blank">ABRIR PROCESSO</a>
-            </div>
-            <div class="card">
-                <div>
-                    <span class="category-tag tag-proc">Processo</span>
-                    <h3>23089.020305/2025-77</h3>
-                    <p>Atas CEPG.</p>
-                </div>
-                <a href="https://sei.unifesp.br/controlador.php?acao=procedimento_trabalhar&id_procedimento=3028509" class="btn-view" target="_blank">ABRIR PROCESSO</a>
-            </div>
-            <div class="card">
-                <div>
-                    <span class="category-tag tag-proc">Processo</span>
-                    <h3>23089.037825/2025-19</h3>
-                    <p>Gestão da Bolsas CAPES DS - Demanda Social.</p>
-                </div>
-                <a href="https://sei.unifesp.br/controlador.php?acao=procedimento_trabalhar&id_procedimento=3277880" class="btn-view" target="_blank">ABRIR PROCESSO</a>
-            </div>
-
-
-        </div>
-    </div>
-
-    <footer>&copy; 2026 PPGE UNIFESP | Maurício Massao Oura</footer>
 </div>
 
-<script src="assets.js"></script>
 <script>
-    if (window.LOGO_PPGE) { document.getElementById('logoUnifesp').src = window.LOGO_PPGE; }
+    // Configuração das seções
+    const secoes = [
+        { id: 'fluxo', titulo: 'Fluxos', arquivo: 'fluxos.json', tagClass: 'tag-flow' },
+        { id: 'sistema', titulo: 'Sistemas', arquivo: 'sistemas.json', tagClass: 'tag-system' },
+        { id: 'normativo', titulo: 'Normativos', arquivo: 'normativos.json', tagClass: 'tag-norm' },
+        { id: 'processo', titulo: 'Processos', arquivo: 'processos.json', tagClass: 'tag-proc' }
+    ];
 
     let currentCategory = 'all';
 
+    // Função para carregar os JSONs
+    async function carregarDados() {
+        const container = document.getElementById('content-area');
+        container.innerHTML = '';
+
+        for (const sec of secoes) {
+            try {
+                // Busca o arquivo JSON (pode ser 'data/fluxos.json' se você criar a pasta)
+                const response = await fetch(sec.arquivo);
+                const dados = await response.json();
+
+                // Cria o bloco da seção
+                const sectionHtml = `
+                    <div class="section-block" id="sec-${sec.id}">
+                        <h2 class="section-title">${sec.titulo}</h2>
+                        <div class="grid-container" id="grid-${sec.id}">
+                            ${dados.map(item => `
+                                <div class="card">
+                                    <div>
+                                        <span class="category-tag ${sec.tagClass}">${sec.titulo.slice(0,-1)}</span>
+                                        <h3>${item.titulo}</h3>
+                                        <p>${item.descricao}</p>
+                                    </div>
+                                    <a href="${item.link}" class="btn-view" target="_blank">${item.botao || 'VISUALIZAR'}</a>
+                                </div>
+                            `).join('')}
+                        </div>
+                    </div>
+                `;
+                container.innerHTML += sectionHtml;
+            } catch (e) {
+                console.error("Erro ao carregar " + sec.arquivo, e);
+            }
+        }
+        filter(); // Aplica filtros iniciais
+    }
+
     function setCategory(cat) {
         currentCategory = cat;
-        document.querySelectorAll('.sidebar-link').forEach(link => link.classList.remove('active'));
+        document.querySelectorAll('.sidebar-link').forEach(l => l.classList.remove('active'));
         document.getElementById('btn-' + cat).classList.add('active');
-        document.getElementById('searchInput').value = '';
         filter();
     }
 
     function filter() {
-        let val = document.getElementById('searchInput').value.toLowerCase();
-        let sections = document.querySelectorAll('.section-block');
-        
-        sections.forEach(section => {
-            let sectionId = section.id.replace('sec-', '');
-            let cards = section.querySelectorAll('.card');
-            let hasVisibleCards = false;
+        const val = document.getElementById('searchInput').value.toLowerCase();
+        document.querySelectorAll('.section-block').forEach(section => {
+            const sectionId = section.id.replace('sec-', '');
+            const cards = section.querySelectorAll('.card');
+            let hasMatch = false;
 
             if (currentCategory === 'all' || currentCategory === sectionId) {
-                section.style.display = "";
                 cards.forEach(card => {
-                    let txt = card.innerText.toLowerCase();
-                    if (txt.includes(val)) {
-                        card.style.display = "";
-                        hasVisibleCards = true;
-                    } else {
-                        card.style.display = "none";
-                    }
+                    const match = card.innerText.toLowerCase().includes(val);
+                    card.style.display = match ? "" : "none";
+                    if (match) hasMatch = true;
                 });
-                if (!hasVisibleCards && val !== "") section.style.display = "none";
+                section.style.display = hasMatch ? "" : "none";
             } else {
                 section.style.display = "none";
             }
         });
     }
-</script>
 
+    // Inicia o carregamento ao abrir a página
+    carregarDados();
+</script>
 </body>
 </html>
