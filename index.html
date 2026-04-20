@@ -219,7 +219,6 @@
 <script>
     if (window.LOGO_PPGE) { document.getElementById('logoUnifesp').src = window.LOGO_PPGE; }
 
-    // MAPEAMENTO CORRIGIDO: tagClass agora bate exatamente com as classes do seu <style>
     const secoes = [
         { id: 'fluxo', titulo: 'Fluxos', arquivo: 'fluxos.json', tagClass: 'tag-flow' },
         { id: 'sistema', titulo: 'Sistemas', arquivo: 'sistemas.json', tagClass: 'tag-system' },
@@ -228,6 +227,20 @@
     ];
 
     let currentCategory = 'all';
+
+    // Função auxiliar para gerar o HTML dos cartões
+    function renderCards(lista, tagClass, categoriaTitulo) {
+        return lista.map(item => `
+            <div class="card">
+                <div>
+                    <span class="category-tag ${tagClass}">${categoriaTitulo.slice(0,-1)}</span>
+                    <h3>${item.titulo}</h3>
+                    <p>${item.descricao}</p>
+                </div>
+                <a href="${item.link}" class="btn-view" target="_blank">${item.botao || 'ABRIR'}</a>
+            </div>
+        `).join('');
+    }
 
     async function carregarDados() {
         const container = document.getElementById('content-area');
@@ -238,37 +251,40 @@
         for (const sec of secoes) {
             try {
                 const response = await fetch(sec.arquivo);
-                
-                if (!response.ok) {
-                    console.error(`ERRO: O arquivo ${sec.arquivo} não foi encontrado na pasta.`);
-                    continue; // Pula para a próxima seção se esta falhar
-                }
+                if (!response.ok) continue;
                 
                 const dados = await response.json();
+                let conteudoSecao = '';
+
+                // Lógica especial para a seção de Processos (Ativos/Inativos)
+                if (sec.id === 'processo') {
+                    const ativos = dados.filter(item => item.status === 'ativo');
+                    const inativos = dados.filter(item => item.status === 'inativo');
+
+                    conteudoSecao = `
+                        <h3 style="color: var(--tag-flow); font-size: 0.85rem; margin: 20px 0 15px; letter-spacing: 1px;">🟢 ATIVOS</h3>
+                        <div class="grid-container">${renderCards(ativos, sec.tagClass, sec.titulo)}</div>
+                        
+                        <h3 style="color: var(--text-dim); font-size: 0.85rem; margin: 40px 0 15px; letter-spacing: 1px;">⚪ INATIVOS / ARQUIVADOS</h3>
+                        <div class="grid-container" style="opacity: 0.6;">${renderCards(inativos, sec.tagClass, sec.titulo)}</div>
+                    `;
+                } else {
+                    // Renderização padrão para Fluxos, Sistemas e Normativos
+                    conteudoSecao = `<div class="grid-container">${renderCards(dados, sec.tagClass, sec.titulo)}</div>`;
+                }
 
                 fullHtml += `
                     <div class="section-block" id="sec-${sec.id}">
                         <h2 class="section-title">${sec.titulo}</h2>
-                        <div class="grid-container">
-                            ${dados.map(item => `
-                                <div class="card">
-                                    <div>
-                                        <span class="category-tag ${sec.tagClass}">${sec.titulo.slice(0,-1)}</span>
-                                        <h3>${item.titulo}</h3>
-                                        <p>${item.descricao}</p>
-                                    </div>
-                                    <a href="${item.link}" class="btn-view" target="_blank">${item.botao || 'ABRIR'}</a>
-                                </div>
-                            `).join('')}
-                        </div>
+                        ${conteudoSecao}
                     </div>
                 `;
             } catch (e) {
-                console.error(`Erro crítico ao processar ${sec.arquivo}:`, e);
+                console.error(`Erro ao carregar ${sec.arquivo}:`, e);
             }
         }
         
-        container.innerHTML = fullHtml || '<p style="color: var(--tag-proc)">Nenhum arquivo JSON foi carregado. Verifique o console (F12).</p>';
+        container.innerHTML = fullHtml || '<p style="color: var(--tag-proc)">Erro ao carregar arquivos JSON.</p>';
         filter(); 
     }
 
@@ -300,7 +316,11 @@
                         card.style.display = "none";
                     }
                 });
-                if (!hasVisibleCards && val !== "") section.style.display = "none";
+                
+                // Esconde a seção inteira se a busca não retornar nada nela
+                if (!hasVisibleCards && val !== "") {
+                    section.style.display = "none";
+                }
             } else {
                 section.style.display = "none";
             }
