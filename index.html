@@ -231,10 +231,25 @@
     // Função auxiliar para gerar o HTML dos cartões
     function renderCards(lista, tagClass, categoriaTitulo) {
         return lista.map(item => {
-            // Define a cor e o texto do status apenas para processos
             const isProcesso = tagClass === 'tag-process';
-            const corStatus = item.status === 'ativo' ? '#10b981' : '#f43f5e'; // Verde ou Vermelho
+            const corStatus = item.status === 'ativo' ? '#10b981' : '#f43f5e';
             const textoStatus = item.status === 'ativo' ? 'Ativo' : 'Inativo';
+
+            // Lógica para as Palavras-Chave visíveis
+            let tagsHtml = '';
+            if (item.palavras_chave) {
+                // Separa as palavras por vírgula e cria as etiquetas
+                const tags = item.palavras_chave.split(',');
+                tagsHtml = `
+                    <div style="display: flex; flex-wrap: wrap; gap: 5px; margin-top: 10px;">
+                        ${tags.map(tag => `
+                            <span style="background: var(--bg-body); color: var(--text-dim); font-size: 0.65rem; padding: 2px 8px; border-radius: 4px; border: 1px solid #e2e8f0;">
+                                #${tag.trim()}
+                            </span>
+                        `).join('')}
+                    </div>
+                `;
+            }
 
             return `
                 <div class="card" style="${isProcesso ? `border-left: 4px solid ${corStatus};` : ''}">
@@ -251,6 +266,7 @@
                         </div>
                         <h3>${item.titulo}</h3>
                         <p>${item.descricao}</p>
+                        ${tagsHtml} 
                     </div>
                     <a href="${item.link}" class="btn-view" target="_blank">${item.botao || 'ABRIR'}</a>
                 </div>
