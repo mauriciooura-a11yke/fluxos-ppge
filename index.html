@@ -125,12 +125,11 @@
             border-radius: 12px;
             color: white;
             font-size: 1rem;
-            margin-bottom: 15px; /* Reduzido para aproximar os badges */
+            margin-bottom: 15px;
             outline: none;
         }
         #searchInput:focus { border-color: var(--accent); }
 
-        /* Painel de Filtros Ativos (Abaixo da busca) */
         .active-filters-bar {
             display: flex;
             flex-wrap: wrap;
@@ -138,6 +137,7 @@
             margin-bottom: 40px;
             align-items: center;
             padding: 10px 5px;
+            min-height: 45px;
         }
         .filter-label {
             font-size: 0.85rem;
@@ -162,7 +162,7 @@
             color: var(--text-dim); 
             font-style: normal; 
             font-weight: bold;
-            font-size: 1rem;
+            font-size: 1.1rem;
             line-height: 1;
         }
         .filter-badge i:hover { color: #f43f5e; }
@@ -255,17 +255,16 @@
         <div class="brand">
             <h1>PPGE<span>Flows</span></h1>
         </div>
-        <div style="font-size: 0.7rem; color: var(--text-dim);">v 4.0 Dinâmico</div>
+        <div style="font-size: 0.7rem; color: var(--text-dim);">v 4.2 | Inteligência Geral</div>
     </header>
 
     <input type="text" id="searchInput" onkeyup="filter()" placeholder="O que você está procurando hoje?">
     
-    <div id="activeFilters" class="active-filters-bar">
-        </div>
+    <div id="activeFilters" class="active-filters-bar"></div>
 
     <div id="content-area"></div>
 
-    <footer>&copy; 2026 UNIFESP | Desenvolvido por Maurício Massao Oura</footer>
+    <footer>&copy; 2026 UNIFESP | Maurício Massao Oura</footer>
 </div>
 
 <script src="assets.js"></script>
@@ -280,9 +279,11 @@
 
     let currentCategory = 'all';
 
-    // Paleta Sóbria (Azuis, Verdes, Roxos)
+    // Cores Sóbrias + Cinza para Geral
     function getPPGColor(ppg) {
-        if (!ppg || ppg.toLowerCase() === 'geral') return 'var(--accent)';
+        const ppgLower = (ppg || '').toLowerCase();
+        if (!ppg || ppgLower === 'geral' || ppgLower === 'todos') return '#94a3b8'; 
+        
         const colors = ['#38bdf8', '#10b981', '#818cf8', '#fbbf24', '#2dd4bf', '#6366f1'];
         let hash = 0;
         for (let i = 0; i < ppg.length; i++) { hash = ppg.charCodeAt(i) + ((hash << 5) - hash); }
@@ -301,28 +302,20 @@
         const search = document.getElementById('searchInput').value;
         
         let badges = '';
-        
         if (ppg !== 'all' || currentCategory !== 'all' || search !== '') {
             badges = '<span class="filter-label">Filtros aplicados -></span>';
-            
-            if (ppg !== 'all') {
-                badges += `<div class="filter-badge">PPG: <span>${ppg.toUpperCase()}</span> <i onclick="document.getElementById('ppgFilter').value='all'; filter();">×</i></div>`;
-            }
-            if (currentCategory !== 'all') {
-                badges += `<div class="filter-badge">Tipo: <span>${currentCategory.toUpperCase()}</span> <i onclick="setCategory('all')">×</i></div>`;
-            }
-            if (search) {
-                badges += `<div class="filter-badge">Busca: <span>"${search}"</span> <i onclick="document.getElementById('searchInput').value=''; filter();">×</i></div>`;
-            }
+            if (ppg !== 'all') badges += `<div class="filter-badge">PPG: <span>${ppg.toUpperCase()}</span> <i onclick="document.getElementById('ppgFilter').value='all'; filter();">×</i></div>`;
+            if (currentCategory !== 'all') badges += `<div class="filter-badge">Tipo: <span>${currentCategory.toUpperCase()}</span> <i onclick="setCategory('all')">×</i></div>`;
+            if (search) badges += `<div class="filter-badge">Busca: <span>"${search}"</span> <i onclick="document.getElementById('searchInput').value=''; filter();">×</i></div>`;
         }
-        
         badgeContainer.innerHTML = badges;
     }
 
     function renderCards(lista, tagClass, categoriaTitulo) {
         return lista.map(item => {
-            const ppgNome = (item.ppg || 'Geral').toUpperCase();
-            const ppgCor = getPPGColor(item.ppg);
+            const ppgOriginal = (item.ppg || 'Geral');
+            const ppgNome = ppgOriginal.toUpperCase();
+            const ppgCor = getPPGColor(ppgOriginal);
             const isProc = tagClass === 'tag-process';
             const corStatus = item.status === 'ativo' ? '#10b981' : '#64748b';
 
@@ -336,7 +329,7 @@
             }
 
             return `
-                <div class="card" data-ppg="${(item.ppg || '').toLowerCase()}" style="border-top: 4px solid ${isProc ? corStatus : ppgCor}">
+                <div class="card" data-ppg="${ppgOriginal.toLowerCase()}" style="border-top: 4px solid ${isProc ? corStatus : ppgCor}">
                     <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px;">
                         <span class="category-tag ${tagClass}">${categoriaTitulo.slice(0,-1)}</span>
                         <span style="font-size: 0.6rem; color: ${ppgCor}; border: 1px solid ${ppgCor}; padding: 1px 6px; border-radius: 4px; font-weight: bold;">${ppgNome}</span>
@@ -365,7 +358,11 @@
                 if (!response.ok) continue;
                 const dados = await response.json();
                 
-                dados.forEach(item => { if(item.ppg) ppgsEncontrados.add(item.ppg.trim().toLowerCase()); });
+                dados.forEach(item => { 
+                    if(item.ppg && item.ppg.toLowerCase() !== 'geral') {
+                        ppgsEncontrados.add(item.ppg.trim().toLowerCase());
+                    }
+                });
 
                 let conteudo = `<div class="grid-container">${renderCards(dados, sec.tagClass, sec.titulo)}</div>`;
                 
@@ -413,7 +410,9 @@
                 cards.forEach(card => {
                     const cardPPG = (card.getAttribute('data-ppg') || '').toLowerCase();
                     const txt = card.innerText.toLowerCase();
-                    const matchesPPG = (selPPG === 'all' || cardPPG === selPPG);
+                    
+                    // LÓGICA DE HERANÇA: Mostra o específico OU o que for "Geral"
+                    const matchesPPG = (selPPG === 'all' || cardPPG === selPPG || cardPPG === 'geral');
                     const matchesSearch = txt.includes(val);
 
                     if (matchesPPG && matchesSearch) {
