@@ -78,7 +78,7 @@
     "link": "https://siiu.unifesp.br/login",
     "botao": "ACESSAR SISTEMA",
     "status": "ativo",
-    "palavras_chave": "siiu"
+    "palavras_chave": "siiu, notas, rematrícula, bolsas, pré-matrícula, cronograma, sinopg"
   },
   {
     "ppg": "Geral",
@@ -87,7 +87,7 @@
     "link": "https://buscatextual.cnpq.br/buscatextual/busca.do?metodo=apresentar",
     "botao": "ACESSAR SISTEMA",
     "status": "ativo",
-    "palavras_chave": "lattes"
+    "palavras_chave": "lattes, cnpq"
   },
   {
     "ppg": "Geral",
