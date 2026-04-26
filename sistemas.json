@@ -5,7 +5,7 @@
     "descricao": "Acesso ao Sistema Área Exclusiva para cadastro de bancas.",
     "link": "https://procdados.epm.br/dpd/pg/",
     "botao": "ACESSAR SISTEMA",
-    "status": "",
+    "status": "ativo",
     "palavras_chave": "banca, cadastro, membros, defesa"
   },
   {
@@ -14,7 +14,7 @@
     "descricao": "Acesso ao Sistema Repositório Institucional.",
     "link": "https://repositorio.unifesp.br/login",
     "botao": "ACESSAR SISTEMA",
-    "status": "",
+    "status": "ativo",
     "palavras_chave": "repositório, depósito"
   },
   {
@@ -23,16 +23,16 @@
     "descricao": "Acesso ao Sistema de Pré-Matrícula - Tela do ingressante.",
     "link": "https://notas-propgpq.siiu.unifesp.br/prematricula",
     "botao": "ACESSAR SISTEMA",
-    "status": "",
+    "status": "ativo",
     "palavras_chave": "pré-matrícula"
   },
   {
     "ppg": "Geral",
-    "titulo": "Plataforma Sucupira",
+    "titulo": "Sucupira",
     "descricao": "Sistema de coleta de dados e avaliação dos programas de pós-graduação.",
     "link": "https://sucupira.capes.gov.br",
     "botao": "ACESSAR SISTEMA",
-    "status": "",
+    "status": "ativo",
     "palavras_chave": "sucupira, coleta, censo"
   },
   {
@@ -41,7 +41,7 @@
     "descricao": "Sistema de cadastro de autorizados.",
     "link": "https://phpu.unifesp.br/drhunifesp/autorizados/index.php",
     "botao": "ACESSAR SISTEMA",
-    "status": "",
+    "status": "ativo",
     "palavras_chave": "cadastro, autorizados"
   },
   {
@@ -50,16 +50,34 @@
     "descricao": "Interface para o ingressante consultar a matrícula e crachá.",
     "link": "https://infoti.unifesp.edu.br/cracha/",
     "botao": "ACESSAR SISTEMA",
-    "status": "",
+    "status": "ativo",
     "palavras_chave": "matrícula, crachá"
   },
   {
     "ppg": "Geral",
-    "titulo": "Portal SEI - Externo",
+    "titulo": "Portal SEI - Acesso pelo Usuário Externo",
     "descricao": "Interface para usuários externos.",
     "link": "https://portalsei.unifesp.br/usuario-externo",
     "botao": "ACESSAR SISTEMA",
-    "status": "",
-    "palavras_chave": "sei, usuário, externo"
+    "status": "ativo",
+    "palavras_chave": "sei!, sei, usuário, externo"
+  },
+  {
+    "ppg": "Geral",
+    "titulo": "SEI!",
+    "descricao": "Interface para o servidor público.",
+    "link": "https://sei.unifesp.br",
+    "botao": "ACESSAR SISTEMA",
+    "status": "ativo",
+    "palavras_chave": "sei!, sei, usuário, externo"
+  },
+  {
+    "ppg": "Geral",
+    "titulo": "SIIU",
+    "descricao": "Sistema Integrado de Informações Universitárias",
+    "link": "https://siiu.unifesp.br/login",
+    "botao": "ACESSAR SISTEMA",
+    "status": "ativo",
+    "palavras_chave": "siiu"
   }
 ]
