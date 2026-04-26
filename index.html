@@ -16,6 +16,8 @@
             --tag-norms: #f59e0b;
             --tag-flow: #10b981;
             --tag-proc: #3b82f6;
+            --tag-dash: #ec4899; /* Rosa para Dashboards */
+            --tag-tuto: #06b6d4; /* Ciano para Tutoriais */
             --sidebar-width: 280px;
         }
 
@@ -44,7 +46,6 @@
             transition: transform 0.3s ease;
         }
 
-        /* Overlay para Mobile */
         .sidebar-overlay {
             display: none;
             position: fixed;
@@ -92,7 +93,7 @@
         .sidebar-link {
             color: var(--text-bright);
             text-decoration: none;
-            padding: 12px 15px;
+            padding: 10px 15px;
             border-radius: 8px;
             font-size: 0.85rem;
             transition: 0.2s;
@@ -106,7 +107,6 @@
             font-weight: 600;
         }
 
-        /* --- BOTÃO HAMBÚRGUER --- */
         .menu-toggle {
             display: none;
             background: none;
@@ -118,7 +118,6 @@
             margin-right: 15px;
         }
 
-        /* --- CONTEÚDO CENTRAL --- */
         .main-wrapper {
             margin-left: var(--sidebar-width);
             flex: 1;
@@ -138,7 +137,7 @@
 
         .brand-container { display: flex; align-items: center; gap: 10px; }
         .logo-img { height: 40px; width: auto; display: none; } 
-        .brand h1 { font-size: 1.2rem; margin: 0; white-space: nowrap; }
+        .brand h1 { font-size: 1.1rem; margin: 0; }
         .brand h1 span { color: var(--accent); }
 
         #searchInput {
@@ -184,7 +183,17 @@
             border-radius: 14px;
             padding: 20px;
             display: flex; flex-direction: column;
+            transition: 0.3s;
         }
+        .card:hover { transform: translateY(-5px); border-color: var(--accent); }
+
+        .category-tag { font-size: 0.6rem; font-weight: 800; padding: 3px 10px; border-radius: 50px; text-transform: uppercase; }
+        .tag-flow { background: rgba(16, 185, 129, 0.1); color: #10b981; }
+        .tag-system { background: rgba(139, 92, 246, 0.1); color: #8b5cf6; }
+        .tag-normative { background: rgba(245, 158, 11, 0.1); color: #f59e0b; }
+        .tag-process { background: rgba(59, 130, 246, 0.1); color: #3b82f6; }
+        .tag-dashboard { background: rgba(236, 72, 153, 0.1); color: #ec4899; }
+        .tag-tutorial { background: rgba(6, 182, 212, 0.1); color: #06b6d4; }
 
         .keyword-container { display: flex; flex-wrap: wrap; gap: 5px; margin-top: 15px; }
         .keyword-tag { font-size: 0.6rem; color: var(--text-dim); border: 1px solid var(--border); padding: 2px 6px; border-radius: 4px; }
@@ -194,28 +203,14 @@
             font-size: 0.75rem; font-weight: 700; border: 1px solid; margin-top: 20px;
         }
 
-        /* --- RESPONSIVIDADE (MOBILE) --- */
+        footer { margin-top: 60px; padding: 40px; border-top: 1px solid var(--border); text-align: center; font-size: 0.8rem; color: var(--text-dim); }
+
         @media (max-width: 1024px) {
-            .sidebar {
-                transform: translateX(-100%);
-            }
-            .sidebar.open {
-                transform: translateX(0);
-            }
-            .sidebar-overlay.visible {
-                display: block;
-            }
-            .main-wrapper {
-                margin-left: 0;
-                padding: 15px;
-            }
-            .menu-toggle {
-                display: block;
-            }
-            header {
-                justify-content: flex-start;
-            }
-            .brand h1 { font-size: 1.1rem; }
+            .sidebar { transform: translateX(-100%); }
+            .sidebar.open { transform: translateX(0); }
+            .sidebar-overlay.visible { display: block; }
+            .main-wrapper { margin-left: 0; padding: 15px; }
+            .menu-toggle { display: block; }
         }
     </style>
 </head>
@@ -235,6 +230,8 @@
     <a onclick="setCategory('all')" id="btn-all" class="sidebar-link active">🏠 Ver Tudo</a>
     <a onclick="setCategory('fluxo')" id="btn-fluxo" class="sidebar-link">🌊 Fluxos</a>
     <a onclick="setCategory('sistema')" id="btn-sistema" class="sidebar-link">💻 Sistemas</a>
+    <a onclick="setCategory('dashboard')" id="btn-dashboard" class="sidebar-link">📊 Dashboards</a>
+    <a onclick="setCategory('tutorial')" id="btn-tutorial" class="sidebar-link">📖 Tutoriais</a>
     <a onclick="setCategory('normativo')" id="btn-normativo" class="sidebar-link">📜 Normativos</a>
     <a onclick="setCategory('processo')" id="btn-processo" class="sidebar-link">📁 Processos</a>
 </nav>
@@ -245,24 +242,21 @@
         <div class="brand-container">
             <img id="mainLogo" class="logo-img" alt="Logo">
             <div class="brand">
-                <h1>Portal do Conhecimento<span> | PPGs - EFLCH - UNIFESP</span></h1>
+                <h1>Portal do Conhecimento<span> | PPGs - EFLCH</span></h1>
             </div>
         </div>
     </header>
 
-    <input type="text" id="searchInput" onkeyup="filter()" placeholder="O que você procura?">
+    <input type="text" id="searchInput" onkeyup="filter()" placeholder="Busque fluxos, dashboards ou palavras-chave...">
     
     <div id="activeFilters" class="active-filters-bar"></div>
-
     <div id="content-area"></div>
-
-    <footer>&copy; 2026 UNIFESP | EFLCH</footer>
+    <footer>&copy; 2026 UNIFESP | Maurício Massao Oura</footer>
 </div>
 
 <script src="assets.js"></script>
 
 <script>
-    // --- CONTROLE DO MENU MOBILE ---
     function toggleMenu() {
         document.getElementById('sidebar').classList.toggle('open');
         document.getElementById('overlay').classList.toggle('visible');
@@ -283,6 +277,8 @@
     const secoes = [
         { id: 'fluxo', titulo: 'Fluxos', arquivo: 'fluxos.json', tagClass: 'tag-flow' },
         { id: 'sistema', titulo: 'Sistemas', arquivo: 'sistemas.json', tagClass: 'tag-system' },
+        { id: 'dashboard', titulo: 'Dashboards', arquivo: 'dashboards.json', tagClass: 'tag-dashboard' },
+        { id: 'tutorial', titulo: 'Tutoriais', arquivo: 'tutoriais.json', tagClass: 'tag-tutorial' },
         { id: 'normativo', titulo: 'Normativos', arquivo: 'normativos.json', tagClass: 'tag-normative' },
         { id: 'processo', titulo: 'Processos', arquivo: 'processos.json', tagClass: 'tag-process' }
     ];
@@ -310,10 +306,10 @@
         const search = document.getElementById('searchInput').value;
         let badges = '';
         if (ppg !== 'all' || currentCategory !== 'all' || search !== '') {
-            badges = '<span class="filter-label">Filtros aplicados -></span>';
-            if (ppg !== 'all') badges += `<div class="filter-badge">PPG: <span>${ppg.toUpperCase()}</span></div>`;
-            if (currentCategory !== 'all') badges += `<div class="filter-badge">Tipo: <span>${currentCategory.toUpperCase()}</span></div>`;
-            if (search) badges += `<div class="filter-badge">Busca: <span>"${search}"</span></div>`;
+            badges = '<span class="filter-label">Filtros:</span>';
+            if (ppg !== 'all') badges += `<div class="filter-badge">${ppg.toUpperCase()}</div>`;
+            if (currentCategory !== 'all') badges += `<div class="filter-badge">${currentCategory.toUpperCase()}</div>`;
+            if (search) badges += `<div class="filter-badge">"${search}"</div>`;
         }
         badgeContainer.innerHTML = badges;
     }
@@ -352,7 +348,7 @@
         const container = document.getElementById('content-area');
         const ppgSelect = document.getElementById('ppgFilter');
         const ppgsEncontrados = new Set();
-        container.innerHTML = '<p style="text-align:center; padding: 50px;">Carregando...</p>';
+        container.innerHTML = '<p style="text-align:center; padding: 50px;">Sincronizando arquivos...</p>';
         let fullHtml = '';
 
         for (const sec of secoes) {
@@ -417,6 +413,5 @@
 
     carregarDados();
 </script>
-
 </body>
 </html>
