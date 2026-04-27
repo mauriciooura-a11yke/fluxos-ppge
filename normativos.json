@@ -52,5 +52,14 @@
     "botao": "ABRIR DOCUMENTO",
     "status": "ativo",
     "palavras_chave": "matrícula, estrangeiro"
+  },
+  {
+    "ppg": "Filosofia",
+    "titulo": "Regulamento Interno do Programa de Pós-Graduação em Filosofia (PPGF)",
+    "descricao": "",
+    "link": "https://ppg.unifesp.br/filosofia/images/regimento/Regulamento_do_PPGF_2020_-_Verso_FINAL_-_agosto_2020.pdf",
+    "botao": "ABRIR DOCUMENTO",
+    "status": "ativo",
+    "palavras_chave": "regimento, regulamento, filosofia"
   }
 ]
