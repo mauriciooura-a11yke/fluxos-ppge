@@ -73,11 +73,47 @@
   },
   {
     "ppg": "Geral",
-    "titulo": "RESOLUÇÃO Nº 200/2021/CONSELHO UNIVERSITÁRIO",
+    "titulo": "Resolução Nº 200/2021/CONSELHO UNIVERSITÁRIO",
     "descricao": "Dispõe sobre as diretrizes e procedimentos para os projetos de pesquisa no Comitê de Éca em Pesquisa (CEP) e na Comissão de Éca no Uso de Animais (CEUA) no âmbito da Universidade Federal de São Paulo (Unifesp).",
     "link": "https://drive.google.com/file/d/1lrJNeX-gETGz2x-uFiVC-TvdyrkoNhXJ/view?usp=drive_link",
     "botao": "ABRIR DOCUMENTO",
     "status": "ativo",
     "palavras_chave": "cep, parecer cep, declaração de responsabilidade, ética, pesquisa"
+  },
+  {
+    "ppg": "Geral",
+    "titulo": "IN PROPGPQ Nº 4/2024",
+    "descricao": "Dispõe sobre as condições para uso do recurso “DEFESA EM CURSO”.",
+    "link": "https://drive.google.com/file/d/1H2sRUvrWQ1y4yGSY63dlaE7VeaEGBrEx/view?usp=drive_link",
+    "botao": "ABRIR DOCUMENTO",
+    "status": "ativo",
+    "palavras_chave": "defesa em curso"
+  },
+  {
+    "ppg": "Geral",
+    "titulo": "Regulamento PAD",
+    "descricao": "Regulamento do PAD",
+    "link": "https://drive.google.com/file/d/1FsG4SH-_XiFbgf6v1232rl7nIDWrIesv/view?usp=drive_link",
+    "botao": "ABRIR DOCUMENTO",
+    "status": "ativo",
+    "palavras_chave": "regulamento, pad"
+  },
+  {
+    "ppg": "Geral",
+    "titulo": "Resolução nº 02, DE 27 DE AGOSTO DE 2020 - PROPGPQ",
+    "descricao": "Estabelece critérios mínimos para o processo seletivo de ingresso nos cursos de Pós-Graduação da Unifesp",
+    "link": "https://drive.google.com/file/d/1PUhdb9ZXrMg2zYtgZrSpm8YvLc5L4byZ/view?usp=drive_link",
+    "botao": "ABRIR DOCUMENTO",
+    "status": "ativo",
+    "palavras_chave": "processo seletivo"
+  },
+  {
+    "ppg": "Geral",
+    "titulo": "Orientações para implementação de reserva de vagas nos processos seletivos do PPGs da Unifesp",
+    "descricao": "",
+    "link": "https://drive.google.com/file/d/1qA8b5fJwESrGRhe0eanOoW0g8YI3wIg1/view?usp=drive_link",
+    "botao": "ABRIR DOCUMENTO",
+    "status": "ativo",
+    "palavras_chave": "processo seletivo, cota, ação afirmativa"
   }
 ]
