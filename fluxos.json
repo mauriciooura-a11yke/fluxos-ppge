@@ -25,5 +25,14 @@
     "botao": "VISUALIZAR FLUXO",
     "status": "ativo",
     "palavras_chave": "homologação, título"
+  },
+  {
+    "ppg": "Educação",
+    "titulo": "Ingresso de Pós-Doc - PPGE",
+    "descricao": "Fluxo para ingresso de pós-doutorado",
+    "link": "pos_docs_ingresso_ppge.svg",
+    "botao": "VISUALIZAR FLUXO",
+    "status": "ativo",
+    "palavras_chave": "pós-doutorado, pós-doc, ingresso, matrícula"
   }
 ]
