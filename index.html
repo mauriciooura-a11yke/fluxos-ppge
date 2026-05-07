@@ -16,8 +16,8 @@
             --tag-norms: #f59e0b;
             --tag-flow: #10b981;
             --tag-proc: #3b82f6;
-            --tag-dash: #ec4899; /* Rosa para Dashboards */
-            --tag-tuto: #06b6d4; /* Ciano para Tutoriais */
+            --tag-dash: #ec4899;
+            --tag-tuto: #06b6d4;
             --sidebar-width: 280px;
         }
 
@@ -88,6 +88,7 @@
             font-size: 0.9rem;
             margin-bottom: 20px;
             outline: none;
+            cursor: pointer;
         }
 
         .sidebar-link {
@@ -221,9 +222,10 @@
 <nav id="sidebar" class="sidebar">
     <button class="btn-reset-all" onclick="resetAllFilters(); toggleMenu();">🧹 Redefinir Filtros</button>
 
-    <div class="sidebar-title">Selecione o PPG</div>
+    <div class="sidebar-title">Filtro por PPG</div>
     <select id="ppgFilter" class="ppg-selector" onchange="filter(); maybeCloseMenu();">
-        <option value="all">Todos os PPGs</option>
+        <option value="all">Todos os PPGs (+ Geral)</option>
+        <option value="geral">Apenas GERAL</option>
     </select>
 
     <div class="sidebar-title">Categorias</div>
@@ -247,11 +249,11 @@
         </div>
     </header>
 
-    <input type="text" id="searchInput" onkeyup="filter()" placeholder="Busque fluxos, dashboards ou palavras-chave...">
+    <input type="text" id="searchInput" onkeyup="filter()" placeholder="Busque por título ou palavras-chave...">
     
     <div id="activeFilters" class="active-filters-bar"></div>
     <div id="content-area"></div>
-    <footer>&copy; 2026 UNIFESP | Maurício Massao Oura</footer>
+    <footer>&copy; 2026 UNIFESP | EFLCH</footer>
 </div>
 
 <script src="assets.js"></script>
@@ -357,7 +359,8 @@
                 if (!response.ok) continue;
                 const dados = await response.json();
                 dados.forEach(item => { 
-                    if(item.ppg && item.ppg.toLowerCase() !== 'geral') ppgsEncontrados.add(item.ppg.trim().toLowerCase());
+                    const p = (item.ppg || '').trim().toLowerCase();
+                    if(p && p !== 'geral' && p !== 'todos' && p !== '') ppgsEncontrados.add(p);
                 });
 
                 let conteudo = `<div class="grid-container">${renderCards(dados, sec.tagClass, sec.titulo)}</div>`;
@@ -373,7 +376,7 @@
         }
 
         const currentVal = ppgSelect.value;
-        ppgSelect.innerHTML = '<option value="all">Todos os PPGs</option>';
+        ppgSelect.innerHTML = '<option value="all">Todos os PPGs (+ Geral)</option><option value="geral">Apenas GERAL</option>';
         Array.from(ppgsEncontrados).sort().forEach(p => ppgSelect.innerHTML += `<option value="${p}">${p.toUpperCase()}</option>`);
         ppgSelect.value = currentVal;
         container.innerHTML = fullHtml;
@@ -392,21 +395,43 @@
         const val = document.getElementById('searchInput').value.toLowerCase();
         const selPPG = document.getElementById('ppgFilter').value.toLowerCase();
         const sections = document.querySelectorAll('.section-block');
+        
         sections.forEach(section => {
             const sectionId = section.id.replace('sec-', '');
             const cards = section.querySelectorAll('.card');
             let hasVisible = false;
+
             if (currentCategory === 'all' || currentCategory === sectionId) {
                 cards.forEach(card => {
                     const cardPPG = (card.getAttribute('data-ppg') || '').toLowerCase();
                     const txt = card.innerText.toLowerCase();
-                    const matchesPPG = (selPPG === 'all' || cardPPG === selPPG || cardPPG === 'geral');
+                    
+                    let matchesPPG = false;
+                    
+                    if (selPPG === 'all') {
+                        // Mostra tudo
+                        matchesPPG = true;
+                    } else if (selPPG === 'geral') {
+                        // Mostra apenas itens marcados como geral
+                        matchesPPG = (cardPPG === 'geral');
+                    } else {
+                        // Se selecionou um PPG específico (ex: ppge), mostra APENAS ele (exclui o geral)
+                        matchesPPG = (cardPPG === selPPG);
+                    }
+
                     const matchesSearch = txt.includes(val);
-                    if (matchesPPG && matchesSearch) { card.style.display = ""; hasVisible = true; } 
-                    else { card.style.display = "none"; }
+                    
+                    if (matchesPPG && matchesSearch) { 
+                        card.style.display = ""; 
+                        hasVisible = true; 
+                    } else { 
+                        card.style.display = "none"; 
+                    }
                 });
                 section.style.display = hasVisible ? "" : "none";
-            } else { section.style.display = "none"; }
+            } else { 
+                section.style.display = "none"; 
+            }
         });
         updateFilterBadges();
     }
