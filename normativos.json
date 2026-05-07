@@ -115,5 +115,14 @@
     "botao": "ABRIR DOCUMENTO",
     "status": "ativo",
     "palavras_chave": "processo seletivo, cota, ação afirmativa"
+  },
+  {
+    "ppg": "Profhistória",
+    "titulo": "Regimento Interno do PROFHISTÓRIA",
+    "descricao": "Aprovado pelo Conselho de Pós-Graduação em reunião do dia 25/09/2025, Processo 23089.017724/2021-06",
+    "link": "https://ppg.unifesp.br/profhistoria/images/docs/Regimento_Interno_Profhistoria_2025.pdf",
+    "botao": "ABRIR DOCUMENTO",
+    "status": "ativo",
+    "palavras_chave": "regimento, profhistória, ensino de história"
   }
 ]
