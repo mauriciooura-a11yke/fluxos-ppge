@@ -7,5 +7,14 @@
     "botao": "ACESSAR PAINEL",
     "status": "ativo",
     "palavras_chave": "estatistica, prazo, defesa, homologação"
+  },
+  {
+    "ppg": "Educação",
+    "titulo": "Agenda de Bancas",
+    "descricao": "Bancas agendadas. Painel divulgado na páginal inicial do PPGE.",
+    "link": "https://datastudio.google.com/u/0/reporting/322acdc7-ed75-4c08-8a70-a9c9cbf9c33c/page/rUZxF",
+    "botao": "ACESSAR PAINEL",
+    "status": "ativo",
+    "palavras_chave": "agenda, programação, bancas"
   }
 ]
