@@ -34,14 +34,5 @@
     "botao": "VISUALIZAR FLUXO",
     "status": "ativo",
     "palavras_chave": "pós-doutorado, pós-doc, ingresso, matrícula"
-  },
-  {
-    "ppg": "Educação",
-    "titulo": "Estrutura curricular - PPGE",
-    "descricao": "Estrutura curricular dos cursos de Mestrado e Doutorado.",
-    "link": "estrutura_curricular_ppge.svg",
-    "botao": "VISUALIZAR FLUXO",
-    "status": "ativo",
-    "palavras_chave": "mestrado, doutorado, estrutura curricular, currículo, integralização, créditos"
   }
 ]
