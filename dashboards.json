@@ -16,5 +16,14 @@
     "botao": "ACESSAR PAINEL",
     "status": "ativo",
     "palavras_chave": "agenda, programação, bancas"
+  },
+  {
+    "ppg": "Geral",
+    "titulo": "SICAP",
+    "descricao": "Painel da Sicap. Acesso restrito aos servidores do Setor.",
+    "link": "https://datastudio.google.com/u/0/reporting/0f9d06dc-a98d-4120-a21c-69b92863ddd3/page/kqtFE?pli=1",
+    "botao": "ACESSAR PAINEL",
+    "status": "ativo",
+    "palavras_chave": "sicap, férias e afastamentos"
   }
 ]
