@@ -7,5 +7,14 @@
     "botao": "ABRIR DOCUMENTO",
     "status": "ativo",
     "palavras_chave": "manual, pré-matrícula"
+  },
+  {
+    "ppg": "Educação",
+    "titulo": "Estrutura curricular PPGE",
+    "descricao": "Estrutura curricular do PPGE - revisão 08/05/2026",
+    "link": "https://ppg.unifesp.br/educacao/images/estrutura_curricular_ppge_08-05-2026.pdf",
+    "botao": "ABRIR DOCUMENTO",
+    "status": "ativo",
+    "palavras_chave": "estrutura curricular, créditos, integralização"
   }
 ]
