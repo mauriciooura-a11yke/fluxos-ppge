@@ -133,5 +133,14 @@
     "botao": "ACESSAR SISTEMA",
     "status": "ativo",
     "palavras_chave": "atendimento, suaunifesp, ti, pessoal, pessoas, serviços"
+  },
+  {
+    "ppg": "Geral",
+    "titulo": "Booked",
+    "descricao": "Sistema de Agendamento ",
+    "link": "https://agenda.unifesp.br/guarulhos/Web/view-schedule.php",
+    "botao": "ACESSAR SISTEMA",
+    "status": "ativo",
+    "palavras_chave": "agenda, salas, ensamento, booked"
   }
 ]
